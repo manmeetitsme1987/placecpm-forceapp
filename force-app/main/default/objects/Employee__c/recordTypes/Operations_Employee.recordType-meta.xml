@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RecordType xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Operations_Employee</fullName>
     <active>true</active>
-    <description/>
     <label>Operations Employee</label>
-    <picklistValues>
-        <picklist>Employee_Type__c</picklist>
-        <values>
-            <fullName>Hourly Contractors</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Hourly Employee</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Salaried Employee</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Employee_Status__c</picklist>
-        <values>
-            <fullName>Active</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Future Hire</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Terminated</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
     <picklistValues>
         <picklist>Base_Pay_Schedule__c</picklist>
         <values>
@@ -65,6 +34,36 @@
         </values>
         <values>
             <fullName>Quarterly</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Employee_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Future Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terminated</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Employee_Type__c</picklist>
+        <values>
+            <fullName>Hourly Contractors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hourly Employee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salaried Employee</fullName>
             <default>false</default>
         </values>
     </picklistValues>

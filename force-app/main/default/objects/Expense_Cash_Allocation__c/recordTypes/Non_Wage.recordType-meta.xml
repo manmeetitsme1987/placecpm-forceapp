@@ -3,4 +3,23 @@
     <fullName>Non_Wage</fullName>
     <active>true</active>
     <label>Non-Wage</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Bonus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expense Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payroll Tax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
 </RecordType>

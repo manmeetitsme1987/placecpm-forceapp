@@ -1,4 +1,4 @@
-    /*
+/*
     Description : This class will be as Test for PLCategoryTriggerHandler.
     Date Created : 21th June 2019
     */

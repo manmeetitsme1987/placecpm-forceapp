@@ -41,6 +41,7 @@
         <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>Revenue_Account_Record_Page</content>
         <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
@@ -57,7 +58,6 @@
     <label>Revenue Account</label>
     <nameField>
         <label>Name</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
@@ -65,8 +65,8 @@
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts>
         <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>MassChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <searchResultsAdditionalFields>GL_Code__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account_Number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>

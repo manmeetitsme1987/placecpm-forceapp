@@ -13,10 +13,12 @@
             <value>
                 <fullName>United States</fullName>
                 <default>false</default>
+                <label>United States</label>
             </value>
             <value>
                 <fullName>India</fullName>
                 <default>false</default>
+                <label>India</label>
             </value>
         </valueSetDefinition>
     </valueSet>

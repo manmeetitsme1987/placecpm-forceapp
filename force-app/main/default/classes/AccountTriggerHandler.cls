@@ -4,10 +4,11 @@ Description  : This class will be used for writing all the functionalities of Di
 Date Created : 18 July 2019
 
 Change 1 :  PCPM-316 | 22 JULY 19 | Namita
+// Comment put by Manmeet to test the retrive by Salesforce CLI
 */
 
 public with sharing class AccountTriggerHandler implements CommonTriggerHandler{
-	public void BeforeInsert(List<SObject> newItems){
+    public void BeforeInsert(List<SObject> newItems){
         
     }
     
@@ -56,8 +57,8 @@ public with sharing class AccountTriggerHandler implements CommonTriggerHandler{
                 for(Expense_Account__c expenseAcc : [Select Id, Name, Vendor__c, Vendor__r.Name
                                                  FROM Expense_Account__c 
                                                  WHERE Vendor__c IN : accountMap.keySet()]){
-                	expenseAcc.Name = expenseAcc.Name.replace(mapOldAccounts.get(expenseAcc.Vendor__c).Name + ' - ', accountMap.get(expenseAcc.Vendor__c).Name + ' - ');
-                	vendorExpenseAccountList.add(expenseAcc);
+                    expenseAcc.Name = expenseAcc.Name.replace(mapOldAccounts.get(expenseAcc.Vendor__c).Name + ' - ', accountMap.get(expenseAcc.Vendor__c).Name + ' - ');
+                    vendorExpenseAccountList.add(expenseAcc);
                 }
             }     
             //PCPM-316

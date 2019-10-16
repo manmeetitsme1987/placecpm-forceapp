@@ -63,11 +63,13 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Expense Accounts</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts>
         <customTabListAdditionalFields>Vendor__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>GL_Code__c</customTabListAdditionalFields>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>MassChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <lookupDialogsAdditionalFields>Vendor__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>GL_Code__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Vendor__c</searchResultsAdditionalFields>

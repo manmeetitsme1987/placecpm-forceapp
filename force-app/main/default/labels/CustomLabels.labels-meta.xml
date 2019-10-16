@@ -9,715 +9,12 @@
         <value>Action</value>
     </labels>
     <labels>
-        <fullName>Quota_Amount_greater_than_zero</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Quota Amount greater than zero</shortDescription>
-        <value>Quota Amount should be greater than 0.</value>
-    </labels>
-    <labels>
-        <fullName>Add_Row</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Add Row</shortDescription>
-        <value>Add Row</value>
-    </labels>
-    <labels>
-        <fullName>End_Date_Should_be_greater_then_Start_Date</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>End Date Should be greater then Start Date</shortDescription>
-        <value>End Date Should be greater then Start Date</value>
-    </labels>
-    <labels>
-        <fullName>Cannot_delete_employee_as_some_wages_related_to_employee_has_been_paid_out</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Cannot delete employee as some wages related to employee has been paid out.</shortDescription>
-        <value>Cannot delete employee as some wages related to employee has been paid out.</value>
-    </labels>
-    <labels>
-        <fullName>Please_provide_Forecasted_Duration_value_in_Assumption</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Please provide Forecasted Duration value in Assumption</shortDescription>
-        <value>Please provide Forecasted Duration value in Assumption</value>
-    </labels>
-    <labels>
-        <fullName>You_cannot_set_start_date_greater_than_wage_payout_date</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>You cannot set start date greater than wage payout date</shortDescription>
-        <value>You cannot set start date greater than wage payout date.</value>
-    </labels>
-    <labels>
-        <fullName>Employee_Expense_Allocation_Start_Date_cannot_be_less_than_Expense_Detail_Start</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Employee Expense Allocation Start Date cannot be less than Expense Detail Start</shortDescription>
-        <value>Employee Expense Allocation Start Date cannot be less than Expense Detail Start Date</value>
-    </labels>
-    <labels>
-        <fullName>Cancel</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Cancel</shortDescription>
-        <value>Cancel</value>
-    </labels>
-    <labels>
-        <fullName>Error_Product_in_Use</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Error Product in Use</shortDescription>
-        <value>Cannot delete the Product record in use</value>
-    </labels>
-    <labels>
-        <fullName>Error_Revenue_Contract_Cannot_Be_Deleted</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Error Revenue Contract Cannot Be Deleted</shortDescription>
-        <value>Active/Past contract cannot be deleted, try updating End Date instead.</value>
-    </labels>
-    <labels>
-        <fullName>Error_Revenue_Contract_End_Date_in_Past</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Error Revenue Contract End Date in Past</shortDescription>
-        <value>Revenue Contract end date cannot be updated to past date</value>
-    </labels>
-    <labels>
-        <fullName>Error_SOW_Date_range</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Error SOW Date range</shortDescription>
-        <value>Date should be between date range.</value>
-    </labels>
-    <labels>
-        <fullName>Error_SOW_Line_Item_Month_Exists</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Error SOW Line Item Month Exists</shortDescription>
-        <value>SOW Line Item for this month already exist</value>
-    </labels>
-    <labels>
-        <fullName>Exceeding_allowed_range_error</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Exceeding allowed range error</shortDescription>
-        <value>Number beyond allowed ranges.</value>
-    </labels>
-    <labels>
-        <fullName>Error_Range_Start_cannot_be_zero</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Error Range Start cannot be zero</shortDescription>
-        <value>Start range cannot be zero.</value>
-    </labels>
-    <labels>
-        <fullName>Invalid_range_error</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Invalid range error</shortDescription>
-        <value>Invalid range or amount</value>
-    </labels>
-    <labels>
-        <fullName>Monthly_Quota_Amount</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Monthly Revenue Target</shortDescription>
-        <value>Monthly Revenue Target</value>
-    </labels>
-    <labels>
-        <fullName>Quota_Amount</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Quota Amount</shortDescription>
-        <value>Quota Amount</value>
-    </labels>
-    <labels>
-        <fullName>Quota_Schedule</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Quota Schedule</shortDescription>
-        <value>Quota Schedule</value>
-    </labels>
-    <labels>
-        <fullName>Save</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Save</shortDescription>
-        <value>Save</value>
-    </labels>
-    <labels>
-        <fullName>Start_Range</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Start Range</shortDescription>
-        <value>Start Range</value>
-    </labels>
-    <labels>
-        <fullName>Success_message_Quota_Schedule</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Success message Quota Schedule</shortDescription>
-        <value>Quota Plan Sucessfully Created</value>
-    </labels>
-    <labels>
-        <fullName>Time_Frame</fullName>
-        <categories>Quota Schedule</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Time Frame</shortDescription>
-        <value>Time Frame</value>
-    </labels>
-    <labels>
-        <fullName>No_commission_plan_is_asscoiated_with_this_compensation</fullName>
-        <categories>Compensation Error</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>No Quota record is associated with this Sales Employee</shortDescription>
-        <value>No Quota record is associated with this Sales Employee</value>
-    </labels>
-    <labels>
-        <fullName>This_Compensation_record_can_be_deleted_as_some_wages_are_paid_Update_End_Date</fullName>
-        <categories>Compensation Error</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>This Compensation record can be deleted as some wages are paid, Update End Date</shortDescription>
-        <value>This Compensation record can be deleted as some wages are paid, Update End Date Instead</value>
-    </labels>
-    <labels>
-        <fullName>PLTabAccountLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabAccountLabel</shortDescription>
-        <value>GL Accounts</value>
-    </labels>
-    <labels>
-        <fullName>PLTabAprilLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabAprilLabel</shortDescription>
-        <value>April</value>
-    </labels>
-    <labels>
-        <fullName>PLTabAugustLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabAugustLabel</shortDescription>
-        <value>August</value>
-    </labels>
-    <labels>
-        <fullName>PLTabDecemberLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabDecemberLabel</shortDescription>
-        <value>December</value>
-    </labels>
-    <labels>
-        <fullName>PLTabFebruaryLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabFebruaryLabel</shortDescription>
-        <value>February</value>
-    </labels>
-    <labels>
-        <fullName>PLTabJanuaryLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabJanuaryLabel</shortDescription>
-        <value>January</value>
-    </labels>
-    <labels>
-        <fullName>PLTabJulyLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabJulyLabel</shortDescription>
-        <value>July</value>
-    </labels>
-    <labels>
-        <fullName>PLTabJuneLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabJuneLabel</shortDescription>
-        <value>June</value>
-    </labels>
-    <labels>
-        <fullName>PLTabMarchLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabMarchLabel</shortDescription>
-        <value>March</value>
-    </labels>
-    <labels>
-        <fullName>EmployeeAllocationErrorLessThan0</fullName>
-        <categories>EmployeeAllocation</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>EmployeeAllocationErrorLessThan0</shortDescription>
-        <value>Allocation Percentage should be greater than 0</value>
-    </labels>
-    <labels>
-        <fullName>EmployeeRoleProfileDeleteError</fullName>
-        <categories>EmployeeRoleProfile</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>EmployeeRoleProfileDeleteError</shortDescription>
-        <value>Employee Role Profiles can not be deleted if related to any Department Allocation</value>
-    </labels>
-    <labels>
-        <fullName>PLTabMayLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabMayLabel</shortDescription>
-        <value>May</value>
-    </labels>
-    <labels>
-        <fullName>PLTabNovemberLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabNovemberLabel</shortDescription>
-        <value>November</value>
-    </labels>
-    <labels>
-        <fullName>PLTabOctoberLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabOctoberLabel</shortDescription>
-        <value>October</value>
-    </labels>
-    <labels>
-        <fullName>PLTabSelectYearLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabSelectYearLabel</shortDescription>
-        <value>Select Year</value>
-    </labels>
-    <labels>
-        <fullName>PLTabSeptemberLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabSeptemberLabel</shortDescription>
-        <value>September</value>
-    </labels>
-    <labels>
-        <fullName>PLTabTotalLabel</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabTotalLabel</shortDescription>
-        <value>Total</value>
-    </labels>
-    <labels>
-        <fullName>placeCPM_Required_Forecast</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>placeCPM_Required_Forecast</shortDescription>
-        <value>Forecast Duration is not Defined in Assumptions, it is Required for Quota Creation</value>
-    </labels>
-    <labels>
-        <fullName>Invalid_Start_Date</fullName>
-        <categories>Compensation error</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Invalid Start Date</shortDescription>
-        <value>Invalid Start Date</value>
-    </labels>
-    <labels>
-        <fullName>AtleastOneEmpDeptAllocOnEmployee</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>AtleastOneEmpDeptAllocOnEmployee</shortDescription>
-        <value>Atleast one employee department allocation should be on an employee.</value>
-    </labels>
-    <labels>
-        <fullName>EmpRoleProfileError</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>EmpRoleProfileError</shortDescription>
-        <value>Department allocation&#39; s employee role profile should be different on an employee.</value>
-    </labels>
-    <labels>
-        <fullName>TotalAllocationPercentageError</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>TotalAllocationPercentageError</shortDescription>
-        <value>Total allocation percentage of all employee department allocations can not be more than 100%</value>
-    </labels>
-    <labels>
-        <fullName>ExpenseDetails_Delete_Cash</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>ExpenseDetails Delete Cash</shortDescription>
-        <value>This Expense Detail have Expense Cash Allocation in Past, Can not be Deleted, Update End Date instead</value>
-    </labels>
-    <labels>
-        <fullName>Successfully_Delete_Mesaage</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Successfully Delete Mesaage</shortDescription>
-        <value>The record has been Deleted successfully!</value>
-    </labels>
-    <labels>
-        <fullName>PL_Account_Delete_Message</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PL_Account_Delete_Message</shortDescription>
-        <value>Are you sure you want to delete this Expense/Revenue Account and all its allocations?</value>
-    </labels>
-    <labels>
-        <fullName>Is_Not_Deletable</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Is_Not_Deletable</shortDescription>
-        <value>is not Deletable! Contact your administrator.</value>
-    </labels>
-    <labels>
-        <fullName>Field_Custom_validation_exception</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Field_Custom_validation_exception</shortDescription>
-        <value>FIELD_CUSTOM_VALIDATION_EXCEPTION</value>
-    </labels>
-    <labels>
-        <fullName>ExpenseDetails_Delete_P_L</fullName>
-        <categories>Expense Account</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>ExpenseDetails Delete P&amp;L</shortDescription>
-        <value>This Expense Detail have Expense P&amp;L Allocation in Past, Can not be Deleted, Update End Date instead.</value>
-    </labels>
-    <labels>
-        <fullName>ExpenseDetails_Invalid_Date</fullName>
-        <categories>Expense Account</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>ExpenseDetails Invalid Date</shortDescription>
-        <value>Invalid Start Date OR End Date</value>
-    </labels>
-    <labels>
-        <fullName>Expense_Past_Data_Error</fullName>
-        <categories>Expense Account</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Expense Past Data Error</shortDescription>
-        <value>Record(s) with Past Start Date/End Date/Invoice Date, can not be Modified.</value>
-    </labels>
-    <labels>
-        <fullName>Expense_Account_Has_Past_Details</fullName>
-        <categories>Expense Account</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Expense_Account_Has_Past_Details</shortDescription>
-        <value>Expense Account have past Expense Details, can not be deleted, update Expense Detail&#39;s End Date.</value>
-    </labels>
-    <labels>
-        <fullName>ExpenseAllocation_AlreadyExists</fullName>
-        <categories>CPM</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>ExpenseAllocation_AlreadyExists</shortDescription>
-        <value>Expense allocation already exists.</value>
-    </labels>
-    <labels>
-        <fullName>PLTabActual</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabActual</shortDescription>
-        <value>Actual</value>
-    </labels>
-    <labels>
-        <fullName>PLTabForecast</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabForecast</shortDescription>
-        <value>Forecast</value>
-    </labels>
-    <labels>
-        <fullName>PLTabVariance</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>PLTabVariance</shortDescription>
-        <value>Variance</value>
-    </labels>
-    <labels>
-        <fullName>Balance</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Balance</shortDescription>
-        <value>Balance</value>
-    </labels>
-    <labels>
-        <fullName>CASH_FORECAST</fullName>
-        <categories>Cash Screen</categories>
-        PLTabVariance
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>CASH FORECAST</shortDescription>
-        <value>Cash Summary</value>
-    </labels>
-    <labels>
-        <fullName>CREATE_FOLLOWUP_TASK</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>CREATE FOLLOWUP TASK</shortDescription>
-        <value>Create Follow-Up Task</value>
-    </labels>
-    <labels>
-        <fullName>Cash_Surplus_Deficit</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Cash Surplus/Deficit</shortDescription>
-        <value>Cash Surplus/Deficit</value>
-    </labels>
-    <labels>
-        <fullName>Forecasted_Expenses_Total</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Forecasted Expenses Total</shortDescription>
-        <value>FORECASTED EXPENSES TOTAL</value>
-    </labels>
-    <labels>
-        <fullName>LAST_UPDATED</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>LAST UPDATED</shortDescription>
-        <value>Data updated</value>
-    </labels>
-    <labels>
-        <fullName>Receipts</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Receipts</shortDescription>
-        <value>Receipts</value>
-    </labels>
-    <labels>
-        <fullName>SHARE</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>SHARE</shortDescription>
-        <value>Share</value>
-    </labels>
-    <labels>
-        <fullName>Total_Receipts</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Total Receipts</shortDescription>
-        <value>Total Receipts</value>
-    </labels>
-    <labels>
-        <fullName>Total_Spend</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Total Spend</shortDescription>
-        <value>Total Spend</value>
-    </labels>
-    <labels>
-        <fullName>VIEW_ASSUMPTIONS</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>VIEW ASSUMPTIONS</shortDescription>
-        <value>View Assumptions</value>
-    </labels>
-    <labels>
-        <fullName>YEAR</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>YEAR</shortDescription>
-        <value>Year</value>
-    </labels>
-    <labels>
-        <fullName>MONTH</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>MONTH</shortDescription>
-        <value>Month</value>
-    </labels>
-    <labels>
-        <fullName>QUARTER</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>QUARTER</shortDescription>
-        <value>Quarter</value>
-    </labels>
-    <labels>
-        <fullName>CUSTOM</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>CUSTOM</shortDescription>
-        <value>Custom</value>
-    </labels>
-    <labels>
-        <fullName>You_cannot_set_End_Date_greater_wage_payout_date</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>You cannot set End Date greater wage payout date.</shortDescription>
-        <value>You cannot set End Date greater wage payout date.</value>
-    </labels>
-    <labels>
-        <fullName>Total_Deposits</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Total Deposits</shortDescription>
-        <value>Deposits</value>
-    </labels>
-    <labels>
-        <fullName>Not_Confirmed_Receipts</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Not Confirmed Receipts</shortDescription>
-        <value>Outstanding Receipts (No Confirmation)</value>
-    </labels>
-    <labels>
-        <fullName>Confirmed_Receipts</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Confirmed Receipts</shortDescription>
-        <value>Outstanding Receipts (Confirmed Receipts)</value>
-    </labels>
-    <labels>
         <fullName>Acutal_Forecast_UTD</fullName>
         <categories>PLTab</categories>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Actuals to Date &amp; Forecast</shortDescription>
         <value>Actuals to Date &amp; Forecast</value>
-    </labels>
-    <labels>
-        <fullName>Only_Actual</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Only Actual</shortDescription>
-        <value>Actuals</value>
-    </labels>
-    <labels>
-        <fullName>Variance</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Variance</shortDescription>
-        <value>Variance</value>
-    </labels>
-    <labels>
-        <fullName>Only_Forecast</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Only Forecast</shortDescription>
-        <value>Forecast</value>
-    </labels>
-    <labels>
-        <fullName>Pl_Record_Not_Found_Error</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Pl_Record_Not_Found_Error</shortDescription>
-        <value>PL record couldn&#39;t found</value>
-    </labels>
-    <labels>
-        <fullName>Cash_Record_Not_Found_Error</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>CashRecord_Not_Found_Error</shortDescription>
-        <value>Cash record couldn&#39;t found</value>
-    </labels>
-    <labels>
-        <fullName>Please_enter_a_valid_amount</fullName>
-        <categories>PLTab</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Please_enter_a_valid_amount</shortDescription>
-        <value>Please enter a valid amount.</value>
-    </labels>
-    <labels>
-        <fullName>Quota</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Quota</shortDescription>
-        <value>Quota</value>
-    </labels>
-    <labels>
-        <fullName>WEEK</fullName>
-        <categories>Cash Screen</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>WEEK</shortDescription>
-        <value>Week</value>
-    </labels>
-    <labels>
-        <fullName>Assumption_OneRecordAllowed</fullName>
-        <categories>Error</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Assumption_OneRecordAllowed</shortDescription>
-        <value>Only one assumtion record is allowed.</value>
-    </labels>
-    <labels>
-        <fullName>Assumption_AtleastOneRecordShouldExist</fullName>
-        <categories>Error</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Assumption_AtleastOneRecordShouldExist</shortDescription>
-        <value>Atleast one assumtion record should exist.</value>
-    </labels>
-    <labels>
-        <fullName>Employee_Expense_Allocation_StartDateShouldNotBeLessThanEmployeeStartDate</fullName>
-        <categories>Error</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Employee_Expense_Allocation_StartDateShouldNotBeLessThanEmployeeStartDate</shortDescription>
-        <value>Employee Expense Allocation’s Start Date should not be less than Employee’s Start Date.</value>
-    </labels>
-    <labels>
-        <fullName>Compensation_StartDate_CannotBeLessThan_PrevCompStartDate</fullName>
-        <categories>Error</categories>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Compensation_StartDate_CannotBeLessThan_PrevCompStartDate</shortDescription>
-        <value>Compensation start date Cannot be less than previous compensations start date of the employee</value>
     </labels>
     <labels>
         <fullName>Add_Expense_Account</fullName>
@@ -734,6 +31,14 @@
         <protected>true</protected>
         <shortDescription>Add Revenue Account</shortDescription>
         <value>Add Revenue Account</value>
+    </labels>
+    <labels>
+        <fullName>Add_Row</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Row</shortDescription>
+        <value>Add Row</value>
     </labels>
     <labels>
         <fullName>Assumption</fullName>
@@ -757,64 +62,74 @@
         <value>Please fix all the validations before saving Assumption</value>
     </labels>
     <labels>
-        <fullName>Collapse</fullName>
-        <categories>PL AND Cash Tab</categories>
+        <fullName>Assumption_AtleastOneRecordShouldExist</fullName>
+        <categories>Error</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Collapse</shortDescription>
-        <value>Collapse</value>
+        <shortDescription>Assumption_AtleastOneRecordShouldExist</shortDescription>
+        <value>Atleast one assumtion record should exist.</value>
     </labels>
     <labels>
-        <fullName>Delete_Expense_Account</fullName>
-        <categories>PL AND Cash Tab</categories>
+        <fullName>Assumption_OneRecordAllowed</fullName>
+        <categories>Error</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Delete Expense Account</shortDescription>
-        <value>Delete Expense Account</value>
+        <shortDescription>Assumption_OneRecordAllowed</shortDescription>
+        <value>Only one assumtion record is allowed.</value>
     </labels>
     <labels>
-        <fullName>Delete_Revenue_Account</fullName>
-        <categories>PL AND Cash Tab</categories>
+        <fullName>AtleastOneEmpDeptAllocOnEmployee</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Delete Revenue Account</shortDescription>
-        <value>Delete Revenue Account</value>
+        <shortDescription>AtleastOneEmpDeptAllocOnEmployee</shortDescription>
+        <value>Atleast one employee department allocation should be on an employee.</value>
     </labels>
     <labels>
-        <fullName>ErrorInAssumptionLoad</fullName>
+        <fullName>Balance</fullName>
+        <categories>Cash Screen</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>ErrorInAssumptionLoad</shortDescription>
-        <value>There is some error while loading Assumption.</value>
+        <shortDescription>Balance</shortDescription>
+        <value>Balance</value>
     </labels>
     <labels>
-        <fullName>ErrorInAssumptionSave</fullName>
+        <fullName>CASH_FORECAST</fullName>
+        <categories>Cash Screen</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>ErrorInAssumptionSave</shortDescription>
-        <value>There is some error while saving Assumption</value>
+        <shortDescription>CASH FORECAST</shortDescription>
+        <value>Cash Summary</value>
     </labels>
     <labels>
-        <fullName>Expand</fullName>
-        <categories>PL AND Cash Tab</categories>
+        <fullName>CREATE_FOLLOWUP_TASK</fullName>
+        <categories>Cash Screen</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Expand</shortDescription>
-        <value>Expand</value>
+        <shortDescription>CREATE FOLLOWUP TASK</shortDescription>
+        <value>Create Follow-Up Task</value>
     </labels>
     <labels>
-        <fullName>HideAssumption</fullName>
+        <fullName>CUSTOM</fullName>
+        <categories>Cash Screen</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>HideAssumption</shortDescription>
-        <value>Hide Assumption</value>
+        <shortDescription>CUSTOM</shortDescription>
+        <value>Custom</value>
     </labels>
     <labels>
-        <fullName>ShowAssumption</fullName>
+        <fullName>Cancel</fullName>
+        <categories>Quota Schedule</categories>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>ShowAssumption</shortDescription>
-        <value>Show Assumption</value>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Cannot_delete_employee_as_some_wages_related_to_employee_has_been_paid_out</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cannot delete employee as some wages related to employee has been paid out.</shortDescription>
+        <value>Cannot delete employee as some wages related to employee has been paid out.</value>
     </labels>
     <labels>
         <fullName>CashTab_Cash_Surplus_Deficit</fullName>
@@ -895,5 +210,689 @@
         <protected>true</protected>
         <shortDescription>CashTab_Total_Operating_Expenses</shortDescription>
         <value>Total Operating Expenses</value>
+    </labels>
+    <labels>
+        <fullName>Cash_Record_Not_Found_Error</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CashRecord_Not_Found_Error</shortDescription>
+        <value>Cash record couldn&#39;t found</value>
+    </labels>
+    <labels>
+        <fullName>Cash_Surplus_Deficit</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cash Surplus/Deficit</shortDescription>
+        <value>Cash Surplus/Deficit</value>
+    </labels>
+    <labels>
+        <fullName>Collapse</fullName>
+        <categories>PL AND Cash Tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Collapse</shortDescription>
+        <value>Collapse</value>
+    </labels>
+    <labels>
+        <fullName>Compensation_StartDate_CannotBeLessThan_PrevCompStartDate</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Compensation_StartDate_CannotBeLessThan_PrevCompStartDate</shortDescription>
+        <value>Compensation start date Cannot be less than previous compensations start date of the employee</value>
+    </labels>
+    <labels>
+        <fullName>Confirmed_Receipts</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirmed Receipts</shortDescription>
+        <value>Outstanding Receipts (Confirmed Receipts)</value>
+    </labels>
+    <labels>
+        <fullName>Delete_Expense_Account</fullName>
+        <categories>PL AND Cash Tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Expense Account</shortDescription>
+        <value>Delete Expense Account</value>
+    </labels>
+    <labels>
+        <fullName>Delete_Revenue_Account</fullName>
+        <categories>PL AND Cash Tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Revenue Account</shortDescription>
+        <value>Delete Revenue Account</value>
+    </labels>
+    <labels>
+        <fullName>EmpRoleProfileError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EmpRoleProfileError</shortDescription>
+        <value>Department allocation&#39; s employee role profile should be different on an employee.</value>
+    </labels>
+    <labels>
+        <fullName>EmployeeAllocationErrorLessThan0</fullName>
+        <categories>EmployeeAllocation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EmployeeAllocationErrorLessThan0</shortDescription>
+        <value>Allocation Percentage should be greater than 0</value>
+    </labels>
+    <labels>
+        <fullName>EmployeeRoleProfileDeleteError</fullName>
+        <categories>EmployeeRoleProfile</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EmployeeRoleProfileDeleteError</shortDescription>
+        <value>Employee Role Profiles can not be deleted if related to any Department Allocation</value>
+    </labels>
+    <labels>
+        <fullName>Employee_Expense_Allocation_StartDateShouldNotBeLessThanEmployeeStartDate</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Employee_Expense_Allocation_StartDateShouldNotBeLessThanEmployeeStartDate</shortDescription>
+        <value>Employee Expense Allocation’s Start Date should not be less than Employee’s Start Date.</value>
+    </labels>
+    <labels>
+        <fullName>Employee_Expense_Allocation_Start_Date_cannot_be_less_than_Expense_Detail_Start</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Employee Expense Allocation Start Date cannot be less than Expense Detail Start</shortDescription>
+        <value>Employee Expense Allocation Start Date cannot be less than Expense Detail Start Date</value>
+    </labels>
+    <labels>
+        <fullName>End_Date_Should_be_greater_then_Start_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End Date Should be greater then Start Date</shortDescription>
+        <value>End Date Should be greater then Start Date</value>
+    </labels>
+    <labels>
+        <fullName>ErrorInAssumptionLoad</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ErrorInAssumptionLoad</shortDescription>
+        <value>There is some error while loading Assumption.</value>
+    </labels>
+    <labels>
+        <fullName>ErrorInAssumptionSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ErrorInAssumptionSave</shortDescription>
+        <value>There is some error while saving Assumption</value>
+    </labels>
+    <labels>
+        <fullName>Error_Product_in_Use</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Product in Use</shortDescription>
+        <value>Cannot delete the Product record in use</value>
+    </labels>
+    <labels>
+        <fullName>Error_Range_Start_cannot_be_zero</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Range Start cannot be zero</shortDescription>
+        <value>Start range cannot be zero.</value>
+    </labels>
+    <labels>
+        <fullName>Error_Revenue_Contract_Cannot_Be_Deleted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Revenue Contract Cannot Be Deleted</shortDescription>
+        <value>Active/Past contract cannot be deleted, try updating End Date instead.</value>
+    </labels>
+    <labels>
+        <fullName>Error_Revenue_Contract_End_Date_in_Past</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Revenue Contract End Date in Past</shortDescription>
+        <value>Revenue Contract end date cannot be updated to past date</value>
+    </labels>
+    <labels>
+        <fullName>Error_SOW_Date_range</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error SOW Date range</shortDescription>
+        <value>Date should be between date range.</value>
+    </labels>
+    <labels>
+        <fullName>Error_SOW_Line_Item_Month_Exists</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error SOW Line Item Month Exists</shortDescription>
+        <value>SOW Line Item for this month already exist</value>
+    </labels>
+    <labels>
+        <fullName>Exceeding_allowed_range_error</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Exceeding allowed range error</shortDescription>
+        <value>Number beyond allowed ranges.</value>
+    </labels>
+    <labels>
+        <fullName>Expand</fullName>
+        <categories>PL AND Cash Tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Expand</shortDescription>
+        <value>Expand</value>
+    </labels>
+    <labels>
+        <fullName>ExpenseAllocation_AlreadyExists</fullName>
+        <categories>CPM</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ExpenseAllocation_AlreadyExists</shortDescription>
+        <value>Expense allocation already exists.</value>
+    </labels>
+    <labels>
+        <fullName>ExpenseDetails_Delete_Cash</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ExpenseDetails Delete Cash</shortDescription>
+        <value>This Expense Detail have Expense Cash Allocation in Past, Can not be Deleted, Update End Date instead</value>
+    </labels>
+    <labels>
+        <fullName>ExpenseDetails_Delete_P_L</fullName>
+        <categories>Expense Account</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ExpenseDetails Delete P&amp;L</shortDescription>
+        <value>This Expense Detail have Expense P&amp;L Allocation in Past, Can not be Deleted, Update End Date instead.</value>
+    </labels>
+    <labels>
+        <fullName>ExpenseDetails_Invalid_Date</fullName>
+        <categories>Expense Account</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ExpenseDetails Invalid Date</shortDescription>
+        <value>Invalid Start Date OR End Date</value>
+    </labels>
+    <labels>
+        <fullName>Expense_Account_Has_Past_Details</fullName>
+        <categories>Expense Account</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Expense_Account_Has_Past_Details</shortDescription>
+        <value>Expense Account have past Expense Details, can not be deleted, update Expense Detail&#39;s End Date.</value>
+    </labels>
+    <labels>
+        <fullName>Expense_Past_Data_Error</fullName>
+        <categories>Expense Account</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Expense Past Data Error</shortDescription>
+        <value>Record(s) with Past Start Date/End Date/Invoice Date, can not be Modified.</value>
+    </labels>
+    <labels>
+        <fullName>Field_Custom_validation_exception</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Field_Custom_validation_exception</shortDescription>
+        <value>FIELD_CUSTOM_VALIDATION_EXCEPTION</value>
+    </labels>
+    <labels>
+        <fullName>Forecasted_Expenses_Total</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Forecasted Expenses Total</shortDescription>
+        <value>FORECASTED EXPENSES TOTAL</value>
+    </labels>
+    <labels>
+        <fullName>HideAssumption</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>HideAssumption</shortDescription>
+        <value>Hide Assumption</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Start_Date</fullName>
+        <categories>Compensation error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid Start Date</shortDescription>
+        <value>Invalid Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_range_error</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid range error</shortDescription>
+        <value>Invalid range or amount</value>
+    </labels>
+    <labels>
+        <fullName>Is_Not_Deletable</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Is_Not_Deletable</shortDescription>
+        <value>is not Deletable! Contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>LAST_UPDATED</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LAST UPDATED</shortDescription>
+        <value>Data updated</value>
+    </labels>
+    <labels>
+        <fullName>MONTH</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MONTH</shortDescription>
+        <value>Month</value>
+    </labels>
+    <labels>
+        <fullName>Monthly_Quota_Amount</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Monthly Revenue Target</shortDescription>
+        <value>Monthly Revenue Target</value>
+    </labels>
+    <labels>
+        <fullName>No_commission_plan_is_asscoiated_with_this_compensation</fullName>
+        <categories>Compensation Error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Quota record is associated with this Sales Employee</shortDescription>
+        <value>No Quota record is associated with this Sales Employee</value>
+    </labels>
+    <labels>
+        <fullName>Not_Confirmed_Receipts</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Not Confirmed Receipts</shortDescription>
+        <value>Outstanding Receipts (No Confirmation)</value>
+    </labels>
+    <labels>
+        <fullName>Only_Actual</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Only Actual</shortDescription>
+        <value>Actuals</value>
+    </labels>
+    <labels>
+        <fullName>Only_Forecast</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Only Forecast</shortDescription>
+        <value>Forecast</value>
+    </labels>
+    <labels>
+        <fullName>PLTabAccountLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabAccountLabel</shortDescription>
+        <value>GL Accounts</value>
+    </labels>
+    <labels>
+        <fullName>PLTabActual</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabActual</shortDescription>
+        <value>Actual</value>
+    </labels>
+    <labels>
+        <fullName>PLTabAprilLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabAprilLabel</shortDescription>
+        <value>April</value>
+    </labels>
+    <labels>
+        <fullName>PLTabAugustLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabAugustLabel</shortDescription>
+        <value>August</value>
+    </labels>
+    <labels>
+        <fullName>PLTabDecemberLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabDecemberLabel</shortDescription>
+        <value>December</value>
+    </labels>
+    <labels>
+        <fullName>PLTabFebruaryLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabFebruaryLabel</shortDescription>
+        <value>February</value>
+    </labels>
+    <labels>
+        <fullName>PLTabForecast</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabForecast</shortDescription>
+        <value>Forecast</value>
+    </labels>
+    <labels>
+        <fullName>PLTabJanuaryLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabJanuaryLabel</shortDescription>
+        <value>January</value>
+    </labels>
+    <labels>
+        <fullName>PLTabJulyLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabJulyLabel</shortDescription>
+        <value>July</value>
+    </labels>
+    <labels>
+        <fullName>PLTabJuneLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabJuneLabel</shortDescription>
+        <value>June</value>
+    </labels>
+    <labels>
+        <fullName>PLTabMarchLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabMarchLabel</shortDescription>
+        <value>March</value>
+    </labels>
+    <labels>
+        <fullName>PLTabMayLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabMayLabel</shortDescription>
+        <value>May</value>
+    </labels>
+    <labels>
+        <fullName>PLTabNovemberLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabNovemberLabel</shortDescription>
+        <value>November</value>
+    </labels>
+    <labels>
+        <fullName>PLTabOctoberLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabOctoberLabel</shortDescription>
+        <value>October</value>
+    </labels>
+    <labels>
+        <fullName>PLTabSelectYearLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabSelectYearLabel</shortDescription>
+        <value>Select Year</value>
+    </labels>
+    <labels>
+        <fullName>PLTabSeptemberLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabSeptemberLabel</shortDescription>
+        <value>September</value>
+    </labels>
+    <labels>
+        <fullName>PLTabTotalLabel</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabTotalLabel</shortDescription>
+        <value>Total</value>
+    </labels>
+    <labels>
+        <fullName>PLTabVariance</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PLTabVariance</shortDescription>
+        <value>Variance</value>
+    </labels>
+    <labels>
+        <fullName>PL_Account_Delete_Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PL_Account_Delete_Message</shortDescription>
+        <value>Are you sure you want to delete this Expense/Revenue Account and all its allocations?</value>
+    </labels>
+    <labels>
+        <fullName>Pl_Record_Not_Found_Error</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pl_Record_Not_Found_Error</shortDescription>
+        <value>PL record couldn&#39;t found</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_a_valid_amount</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please_enter_a_valid_amount</shortDescription>
+        <value>Please enter a valid amount.</value>
+    </labels>
+    <labels>
+        <fullName>Please_provide_Forecasted_Duration_value_in_Assumption</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please provide Forecasted Duration value in Assumption</shortDescription>
+        <value>Please provide Forecasted Duration value in Assumption</value>
+    </labels>
+    <labels>
+        <fullName>QUARTER</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>QUARTER</shortDescription>
+        <value>Quarter</value>
+    </labels>
+    <labels>
+        <fullName>Quota</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quota</shortDescription>
+        <value>Quota</value>
+    </labels>
+    <labels>
+        <fullName>Quota_Amount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quota Amount</shortDescription>
+        <value>Quota Amount</value>
+    </labels>
+    <labels>
+        <fullName>Quota_Amount_greater_than_zero</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quota Amount greater than zero</shortDescription>
+        <value>Quota Amount should be greater than 0.</value>
+    </labels>
+    <labels>
+        <fullName>Quota_Schedule</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Quota Schedule</shortDescription>
+        <value>Quota Schedule</value>
+    </labels>
+    <labels>
+        <fullName>Receipts</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Receipts</shortDescription>
+        <value>Receipts</value>
+    </labels>
+    <labels>
+        <fullName>SHARE</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SHARE</shortDescription>
+        <value>Share</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ShowAssumption</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ShowAssumption</shortDescription>
+        <value>Show Assumption</value>
+    </labels>
+    <labels>
+        <fullName>Start_Range</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start Range</shortDescription>
+        <value>Start Range</value>
+    </labels>
+    <labels>
+        <fullName>Success_message_Quota_Schedule</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success message Quota Schedule</shortDescription>
+        <value>Quota Plan Sucessfully Created</value>
+    </labels>
+    <labels>
+        <fullName>Successfully_Delete_Mesaage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Successfully Delete Mesaage</shortDescription>
+        <value>The record has been Deleted successfully!</value>
+    </labels>
+    <labels>
+        <fullName>This_Compensation_record_can_be_deleted_as_some_wages_are_paid_Update_End_Date</fullName>
+        <categories>Compensation Error</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This Compensation record can be deleted as some wages are paid, Update End Date</shortDescription>
+        <value>This Compensation record can be deleted as some wages are paid, Update End Date Instead</value>
+    </labels>
+    <labels>
+        <fullName>Time_Frame</fullName>
+        <categories>Quota Schedule</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Time Frame</shortDescription>
+        <value>Time Frame</value>
+    </labels>
+    <labels>
+        <fullName>TotalAllocationPercentageError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TotalAllocationPercentageError</shortDescription>
+        <value>Total allocation percentage of all employee department allocations can not be more than 100%</value>
+    </labels>
+    <labels>
+        <fullName>Total_Deposits</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total Deposits</shortDescription>
+        <value>Deposits</value>
+    </labels>
+    <labels>
+        <fullName>Total_Receipts</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total Receipts</shortDescription>
+        <value>Total Receipts</value>
+    </labels>
+    <labels>
+        <fullName>Total_Spend</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total Spend</shortDescription>
+        <value>Total Spend</value>
+    </labels>
+    <labels>
+        <fullName>VIEW_ASSUMPTIONS</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VIEW ASSUMPTIONS</shortDescription>
+        <value>View Assumptions</value>
+    </labels>
+    <labels>
+        <fullName>Variance</fullName>
+        <categories>PLTab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Variance</shortDescription>
+        <value>Variance</value>
+    </labels>
+    <labels>
+        <fullName>WEEK</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>WEEK</shortDescription>
+        <value>Week</value>
+    </labels>
+    <labels>
+        <fullName>YEAR</fullName>
+        <categories>Cash Screen</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>YEAR</shortDescription>
+        <value>Year</value>
+    </labels>
+    <labels>
+        <fullName>You_cannot_set_End_Date_greater_wage_payout_date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot set End Date greater wage payout date.</shortDescription>
+        <value>You cannot set End Date greater wage payout date.</value>
+    </labels>
+    <labels>
+        <fullName>You_cannot_set_start_date_greater_than_wage_payout_date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot set start date greater than wage payout date</shortDescription>
+        <value>You cannot set start date greater than wage payout date.</value>
+    </labels>
+    <labels>
+        <fullName>placeCPM_Required_Forecast</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>placeCPM_Required_Forecast</shortDescription>
+        <value>Forecast Duration is not Defined in Assumptions, it is Required for Quota Creation</value>
     </labels>
 </CustomLabels>

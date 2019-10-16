@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Validate_End_Date_is_after_Start_Date</fullName>
     <active>true</active>
     <description>This validation rule ensures that Start Date is always lesser than End Date.</description>
