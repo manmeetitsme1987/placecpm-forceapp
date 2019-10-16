@@ -4,7 +4,6 @@ Description  : This class will be used for writing all the functionalities of Di
 Date Created : 18 July 2019
 
 Change 1 :  PCPM-316 | 22 JULY 19 | Namita
-// Comment put by Manmeet to test the retrive by Salesforce CLI
 */
 
 public with sharing class AccountTriggerHandler implements CommonTriggerHandler{
