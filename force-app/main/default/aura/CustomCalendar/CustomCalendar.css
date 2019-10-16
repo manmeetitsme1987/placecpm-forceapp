@@ -1,0 +1,28 @@
+.THIS .slds-button_brand{
+    padding-left: 0rem;
+    padding-right: 0rem;
+    background-color:#0070d2;
+}
+.THIS .weekday {
+    height: 2rem;
+    display: block;
+    position: relative;
+    line-height: 2rem;
+    margin-left: .2rem;
+    margin-right: .2rem;
+}
+.THIS .day {
+    height: 2rem;
+    display: block;
+    position: relative;
+    line-height: 2rem;
+    border-radius: 10%;
+    margin-left: .2rem;
+    margin-right: .2rem;
+}
+.THIS a{
+	color:rgb(8, 7, 7);  
+}
+.THIS a:hover{
+	text-decoration:none;  
+}

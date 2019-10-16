@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Label__c</fullName>
+    <description>This field denotes unit of Size field</description>
+    <externalId>false</externalId>
+    <label>Unit Label</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Unit_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>MB</fullName>
+                <default>false</default>
+                <label>MB</label>
+            </value>
+            <value>
+                <fullName>GB</fullName>
+                <default>false</default>
+                <label>GB</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Blocks</controllingFieldValue>
+            <valueName>MB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Blocks</controllingFieldValue>
+            <valueName>GB</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

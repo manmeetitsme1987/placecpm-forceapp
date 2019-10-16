@@ -1,0 +1,30 @@
+.THIS .width100{
+    width : 100%;
+}
+.THIS .floatRight{
+    float : right;
+}
+.THIS .marginTop2{
+    margin-top : 2%;
+}
+.THIS .marginLeft29{
+    margin-left : 29%;
+}
+.THIS .headerclass{
+    font-weight:unset;
+    font-size:1rem;
+    line-height: 1.25;
+}
+.THIS .displayInline{
+    display:inline-block;
+}
+
+.THIS .slds-page-header__col-title{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+}
+.THIS .marginLeft{
+    margin-left : 1%;
+}

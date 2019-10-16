@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forecast_Quota_Validation_Rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( Forecasting_Quota__c &lt; 0,  Forecasting_Quota__c &gt; 1.0,  ISBLANK(Forecasting_Quota__c) )</errorConditionFormula>
+    <errorMessage>Forecasting Quota % can not be greater than 100% and less than 0.</errorMessage>
+</ValidationRule>

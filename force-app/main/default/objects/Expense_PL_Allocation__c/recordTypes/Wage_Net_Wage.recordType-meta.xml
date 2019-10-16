@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Wage_Net_Wage</fullName>
+    <active>true</active>
+    <description>Allocation of Net Wage from Wages</description>
+    <label>Wage - Net Wage</label>
+</RecordType>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enterpirse_Strategic_Sales_Leader</fullName>
+    <columns>NAME</columns>
+    <columns>Quarterly_Quota_Amount__c</columns>
+    <columns>Monthly_Quota_Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>startsWith</operation>
+        <value>Cal</value>
+    </filters>
+    <label>Enterprise Strategic &amp; Sales Leader</label>
+</ListView>

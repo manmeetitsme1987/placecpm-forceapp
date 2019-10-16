@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Accountant</fullName>
+        <default>false</default>
+        <label>Accountant</label>
+    </customValue>
+    <customValue>
+        <fullName>Account Executive</fullName>
+        <default>false</default>
+        <label>Account Executive</label>
+    </customValue>
+    <customValue>
+        <fullName>Account Manager</fullName>
+        <default>false</default>
+        <label>Account Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Architect</fullName>
+        <default>false</default>
+        <label>Architect</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Analyst</fullName>
+        <default>false</default>
+        <label>Business Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Development Rep</fullName>
+        <default>false</default>
+        <label>Business Development Rep</label>
+    </customValue>
+    <customValue>
+        <fullName>CEO</fullName>
+        <default>false</default>
+        <label>CEO</label>
+    </customValue>
+    <customValue>
+        <fullName>CTO</fullName>
+        <default>false</default>
+        <label>CTO</label>
+    </customValue>
+    <customValue>
+        <fullName>Developer</fullName>
+        <default>false</default>
+        <label>Developer</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, Accounting</fullName>
+        <default>false</default>
+        <label>Director, Accounting</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, Development</fullName>
+        <default>false</default>
+        <label>Director, Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, HR</fullName>
+        <default>false</default>
+        <label>Director, HR</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, Marketing</fullName>
+        <default>false</default>
+        <label>Director, Marketing</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, Product</fullName>
+        <default>false</default>
+        <label>Director, Product</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, Professional Services</fullName>
+        <default>false</default>
+        <label>Director, Professional Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, Sales</fullName>
+        <default>false</default>
+        <label>Director, Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>Director, Support</fullName>
+        <default>false</default>
+        <label>Director, Support</label>
+    </customValue>
+    <customValue>
+        <fullName>Enterprise Account Executive</fullName>
+        <default>false</default>
+        <label>Enterprise Account Executive</label>
+    </customValue>
+    <customValue>
+        <fullName>HR Generalist</fullName>
+        <default>false</default>
+        <label>HR Generalist</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing Analyst</fullName>
+        <default>false</default>
+        <label>Marketing Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Manager</fullName>
+        <default>false</default>
+        <label>Product Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Product Owner</fullName>
+        <default>false</default>
+        <label>Product Owner</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Manager</fullName>
+        <default>false</default>
+        <label>Project Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>QA Analyst</fullName>
+        <default>false</default>
+        <label>QA Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Sales Engineer</fullName>
+        <default>false</default>
+        <label>Sales Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>Solution Consultant</fullName>
+        <default>false</default>
+        <label>Solution Consultant</label>
+    </customValue>
+    <customValue>
+        <fullName>Support Analyst</fullName>
+        <default>false</default>
+        <label>Support Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>UI/UX Designer</fullName>
+        <default>false</default>
+        <label>UI/UX Designer</label>
+    </customValue>
+    <customValue>
+        <fullName>Customer Success Manager</fullName>
+        <default>false</default>
+        <label>Customer Success Manager</label>
+    </customValue>
+    <masterLabel>Role</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

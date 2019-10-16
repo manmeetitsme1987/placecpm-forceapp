@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name = "accId" type = "String" />
+    <aura:registerEvent name = "deleteAccount" type = "c:Confirmation_Box_Event" />
+    <!--<p>{!$Label.c.PL_Account_Delete_Message}</p> -->
+    <button class="slds-button slds-button_neutral" onclick = "{!c.handleCancel}">No</button>
+    <button class="slds-button slds-button_brand" onclick = "{!c.handleOK}">Yes</button>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+</aura:component>

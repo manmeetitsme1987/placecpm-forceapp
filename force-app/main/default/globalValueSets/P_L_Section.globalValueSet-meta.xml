@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>COGS</fullName>
+        <default>false</default>
+        <label>COGS</label>
+    </customValue>
+    <customValue>
+        <fullName>Wages</fullName>
+        <default>false</default>
+        <label>Wages</label>
+    </customValue>
+    <customValue>
+        <fullName>G&amp;A</fullName>
+        <default>false</default>
+        <label>G&amp;A</label>
+    </customValue>
+    <customValue>
+        <fullName>Net Income</fullName>
+        <default>false</default>
+        <label>Net Income</label>
+    </customValue>
+    <masterLabel>P&amp;L Section</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

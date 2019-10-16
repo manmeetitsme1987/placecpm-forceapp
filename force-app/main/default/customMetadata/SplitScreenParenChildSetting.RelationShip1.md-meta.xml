@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>RelationShip1</label>
+    <protected>true</protected>
+    <values>
+        <field>Child_Record_Types__c</field>
+        <value xsi:type="xsd:string">Recurring,Non_Recurring</value>
+    </values>
+    <values>
+        <field>Child_sObject_Api_Name__c</field>
+        <value xsi:type="xsd:string">Revenue_Contract__c</value>
+    </values>
+    <values>
+        <field>Parent_Record_Type__c</field>
+        <value xsi:type="xsd:string">General</value>
+    </values>
+    <values>
+        <field>Parent_sObject_Api_Name__c</field>
+        <value xsi:type="xsd:string">Revenue_Account__c</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">RecordType</value>
+    </values>
+</CustomMetadata>

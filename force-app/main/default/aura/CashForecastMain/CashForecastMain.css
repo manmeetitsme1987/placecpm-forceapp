@@ -1,0 +1,318 @@
+.THIS.MDiv{
+    max-width:100%;
+    overflow:scroll;
+}
+/*
+.THIS .height100 {
+    height:5rem;
+}*/
+.THIS .pd10{
+    padding-right:10px;
+}
+.THIS .wd20{
+    width:13rem;
+}
+.THIS .rowActionBtn {
+	color : red;
+    margin-left: 0.4rem;
+    cursor : pointer;
+}
+.THIS {
+    background:white;
+}
+.THIS .mx100{
+   overflow:scroll;
+}
+.THIS .textCenter{
+    text-align:center;
+}
+.THIS .TOTALCSS{
+    background-color: rgb(250, 250, 249);
+}
+.THIS .Red{
+    color:Red;
+}
+.THIS .BackgroundGrey td{
+    /*
+    background-color:rgb(243, 242, 242);  
+    */
+}
+.THIS .colorbrand th:nth-child(n+2){
+    color:#0070d2;
+}
+.THIS .MDiv .slds-icon_xx-small{
+    width: 0.5rem;
+    height: 0.5rem;
+    line-height: 1;
+}
+.THIS .MDiv .slds-icon_x-small{
+    width: 1rem;
+    height: 1rem;
+    line-height: 1;
+}
+.THIS .MonthHeader{
+    /**
+    font-size:0.75rem;
+    display : inline-block;
+    margin-right:0.4rem;
+    **/
+    color: rgb(21, 137, 238);
+    font-size: 0.8125rem;
+    display : inline-block;
+    margin-right:0.4rem;
+    font-weight:700;
+}
+.THIS table td{
+    font-size: 0.75rem;
+}
+/**
+.THIS .Red::before{
+      content: "(";
+}
+.THIS .Red::after{
+      content: ")";
+}
+**/
+.THIS .textRight{
+    text-align:right;
+}
+.THIS .slds-table th, .THIS .slds-table td {
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+    position: relative;
+}
+.THIS .colorblack{
+    color:rgb(81, 79, 77);
+}
+.THIS table th{
+    background-color : unset;
+}
+.THIS .child{
+}
+.THIS .child td{
+    background-color: rgb(243, 242, 242);
+    text-align:right;
+}
+.THIS .GLParent td{
+    text-align:right;
+}
+.THIS .headerclass {
+    font-weight: unset;
+    font-size: 1rem;
+    line-height: 1.25;
+    padding-left:.75rem;
+}
+.THIS .field{
+    min-height:0px;
+    line-height: 1.4rem;
+}
+.THIS .iconclass{
+    display:block;
+}
+.THIS .paddinghalfrem{
+    padding-left:.5rem;
+}
+.THIS table tr td[data-label="NET INCOME"]{
+    text-align:left;
+    font-weight:700;
+}
+.THIS .AddIcon svg{
+   fill:#0070d2;
+}
+.THIS .ToggleButton{
+    float: right;
+    margin-right: 1rem;
+    font-size:12px;
+}
+.THIS .slds-radio_button [type=radio]:checked+.slds-radio_button__label{
+    background-color: #0070d2;
+}
+.THIS .slds-icon-utility-check svg{
+    fill:green;
+}
+.THIS .slds-icon-utility-check svg{
+    fill:green;
+}
+.THIS .slds-icon-utility-close svg{
+    fill:red;
+}
+.THIS .colorblack{
+    color: #080707;
+    font-weight:400px;
+}
+.THIS .child td{
+    padding-top:0.25rem;
+    padding-bottom:0.25rem;
+}
+.THIS .child table td{
+    padding-right:0rem !important;
+}
+.THIS .child table td div{
+    padding-right:0.5rem;
+}
+.THIS .child table td div div{
+    padding-right:0rem;
+}
+.THIS .child{
+    margin-top:0.25rem;
+    margin-bottom:0.25rem;
+}
+.THIS .ToggleButton .slds-radio {
+    display: inline-block;
+}
+.THIS .positionfixed{
+    position:fixed;
+}
+.THIS td[data-label="Actual"] { 
+      min-width: 5rem;
+}
+.THIS td[data-label="Forecast"] { 
+      min-width: 5rem;
+}
+.THIS td[data-label="Variance"] { 
+      min-width: 5rem;
+}
+.THIS .slds-table_cell-buffer tr>td:first-child{
+    padding-left : 0rem;
+}
+.THIS .slds-table_cell-buffer tr>td:last-child{
+    padding-right : 0.5rem;
+}
+.THIS .slds-table_cell-buffer tr>th:first-child{
+    padding-left:0px;
+}
+.THIS .textRight{
+    text-align:right;
+}
+.THIS .minWidth{
+    min-width:6rem;
+}
+.THIS .headColumn{
+    /**
+    position:absolute !important; 
+    width:17rem; 
+    left:0;
+    top:auto;
+    margin-left:.6rem;**/
+}
+.THIS .hideBlock{
+    color:transparent;
+}
+
+.THIS .slds-table_cell-buffer tr>th:last-child{
+    padding-right:.5rem;
+}
+.THIS.slds-box{
+    padding:0.5rem;
+    border-top-width:0px;
+}
+.THIS .child table td {
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.THIS .GLParent table td {
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.THIS .childEdited{
+    /**
+    padding-bottom:2rem !important;
+    **/
+}
+
+/**
+.THIS .table-fixed tbody {
+  height: 22rem;
+  overflow-y: auto;
+  width: 100%;
+}
+.THIS .table-fixed thead, .THIS .table-fixed tbody, .THIS .table-fixed tr, .THIS .table-fixed th {
+  display: block;
+}
+.THIS .table-fixed tbody td, .THIS .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+.THIS .widthcol2{
+    width:calc(100%/16 * 3);
+}
+.THIS .widthcol1{
+    width:calc(100%/16 * 1);
+}
+.THIS .width100{
+    min-width:100%;
+}**/
+.THIS .width60{
+    width:60%;
+    float:left;
+}
+.THIS .width40{
+    float:right;width:40%;
+}
+
+.THIS .slds-has-focus a{
+    text-decoration: none !important;
+}
+.THIS .closeSplit svg{
+    fill: rgb(176, 173, 171);
+}
+.THIS .headColumntopRow{
+    z-index:12 !important;
+}
+
+.THIS .headColumn {
+    position: sticky !important;
+    position: -webkit-sticky !important; 
+    left: 0;
+    z-index: 10;
+    background: white;
+    padding-left: 0;
+}
+
+.THIS .slds-table_cell-buffer tr>th:first-child {
+    position: sticky;
+    position: -webkit-sticky !important;
+    left: 0;
+    z-index: 10;
+    background: white;
+    padding-left: 0;
+}
+.THIS .fixedHeader{
+    background: #fff !important;
+    vertical-align: top;
+    background: white !important;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0;
+    z-index:5;
+}
+.THIS .closeSplit svg{
+    width: .8rem !important;
+    height: .8rem !important;
+}
+.THIS .borderRed label:before { 
+    color: #e32;
+    content: ' *';
+    display:inline; 
+} 
+.THIS .bgColorbtn{
+    background-color:#0070d2;
+}
+.THIS .FocusIn div{
+    border-color: rgb(21, 137, 238) !important;
+    border: 1px dashed;
+}
+.THIS .visiblityNone{
+    visibility:hidden !important;
+}
+.THIS .crossDiv{
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+    background-color: white;
+    width: 100%;
+    padding-top: 0.5rem;
+}
+.THIS .Bold{
+    font-weight:bold;
+}

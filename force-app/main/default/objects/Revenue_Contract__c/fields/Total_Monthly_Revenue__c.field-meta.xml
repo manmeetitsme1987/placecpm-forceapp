@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Monthly_Revenue__c</fullName>
+    <description>This field represents the Total Monthly Revenue</description>
+    <externalId>false</externalId>
+    <label>Total Monthly Revenue</label>
+    <summarizedField>Contract_Line_Items__c.Total_Amount__c</summarizedField>
+    <summaryForeignKey>Contract_Line_Items__c.Revenue_Contract_Details__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

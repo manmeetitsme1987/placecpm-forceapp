@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Account_Id__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT( ISBLANK(Revenue_Account__c)),IF(NOT( ISBLANK(Revenue_Account__r.Payment_Account__c)), CASESAFEID(Revenue_Account__r.Payment_Account__c), CASESAFEID(Revenue_Account__r.Account_Executive__r.Location__r.Payment_Account__c)), IF(NOT(ISBLANK(Equity__c)),Equity__r.Payment_Account__c, null ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Payment Account Id</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

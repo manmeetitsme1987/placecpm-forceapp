@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Account__c</fullName>
+    <description>This field denotes the parent Revenue Account.</description>
+    <externalId>false</externalId>
+    <label>Revenue Account</label>
+    <referenceTo>Revenue_Account__c</referenceTo>
+    <relationshipLabel>Revenue Contract / Statement of Work</relationshipLabel>
+    <relationshipName>Revenue_Contracts</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

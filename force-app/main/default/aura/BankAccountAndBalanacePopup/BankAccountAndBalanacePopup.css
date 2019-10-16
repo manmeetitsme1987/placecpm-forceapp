@@ -1,0 +1,19 @@
+.THIS.footerclass{
+    text-align: right;
+    padding-top: 1rem;
+}
+.THIS .saveclass{
+    background-color:#0070d2;
+}
+.THIS .BalanceInput label{
+    display:none;
+}
+.THIS .paddingAround{
+    padding-left:.5rem;
+    padding-top:.5rem;
+    padding-bottom:.5rem;
+}
+.THIS .paddingAroundLR{
+    padding-top:.5rem;
+    padding-bottom:.5rem;
+}

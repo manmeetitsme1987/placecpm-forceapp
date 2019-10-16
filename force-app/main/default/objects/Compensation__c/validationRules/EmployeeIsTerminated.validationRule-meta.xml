@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmployeeIsTerminated</fullName>
+    <active>true</active>
+    <errorConditionFormula>TEXT(Employee__r.Employee_Type__c) == &#39;Terminated&#39; &amp;&amp;  ISNEW()</errorConditionFormula>
+    <errorMessage>Compensation cannot be created when related employee is terminated.</errorMessage>
+</ValidationRule>

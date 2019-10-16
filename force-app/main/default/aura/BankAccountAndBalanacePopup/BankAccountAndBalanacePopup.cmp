@@ -1,0 +1,43 @@
+<aura:component controller="BankAccountAndBalanceCntrl">
+    <aura:registerEvent name = "saveOpeningBalance" type = "c:Confirmation_Box_Event" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="responseList" type="List"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <div class="paddingAround">
+         <div class="slds-grid slds-wrap" style="padding-bottom:.5rem">
+        <div class="slds-col slds-size_6-of-12">
+            <p style="font-weight:bold">
+                Payment Accounts
+            </p>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <p style="font-weight:bold">Opening Balance</p>
+        </div>
+    </div>
+    <aura:iteration items="{!v.responseList}" var="paymentAccount" indexVar="index">
+        <div class="slds-grid slds-wrap slds-align_absolute-center paddingAroundLR">
+            <div class="slds-col slds-size_6-of-12" style="padding-left:.5rem">
+                <p>
+                    {!paymentAccount.accountName}
+                </p>
+            </div>
+            <div class="slds-col slds-size_6-of-12 BalanceInput">
+            <lightning:input aura:id="paymentAccoutAmountInput" type="number" name="opening balance" 
+                                 label="opening balance" 
+                                 value="{!paymentAccount.amount}" formatter="currency"/>
+            </div>
+        </div>
+    </aura:iteration>
+    </div>
+   
+    <div class="footerclass">
+        <lightning:button variant="neutral"
+                          label="Cancel"
+                          title="Cancel"
+                          onclick="{! c.closePopup }"/>
+        <lightning:button variant="brand"
+                          label="Save"
+                          title="Save"
+                          onclick="{!c.submitDetails}" class="saveclass"/>
+    </div>
+</aura:component>

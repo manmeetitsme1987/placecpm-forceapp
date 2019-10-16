@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <fullName>Sales_All_Employees</fullName>
+    <columns>NAME</columns>
+    <columns>Location__c</columns>
+    <columns>Role__c</columns>
+    <columns>Employee_Status__c</columns>
+    <columns>Employee_Start_Date__c</columns>
+    <columns>Employee_End_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Role__c</field>
+        <operation>equals</operation>
+        <value>Account Executive,Sales Engineer,Business Development Rep</value>
+    </filters>
+    <label>Sales Employees</label>
+</ListView>

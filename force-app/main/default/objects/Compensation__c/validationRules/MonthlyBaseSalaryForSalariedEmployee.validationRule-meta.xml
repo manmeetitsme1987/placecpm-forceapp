@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MonthlyBaseSalaryForSalariedEmployee</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL(Employee__r.Employee_Type__c,&#39;Salaried Employee&#39;), ISNULL( Monthly_Base_Salary__c ))</errorConditionFormula>
+    <errorDisplayField>Monthly_Base_Salary__c</errorDisplayField>
+    <errorMessage>Monthly Base Salary cannot be empty when Employee Type is Salaried Employee.</errorMessage>
+</ValidationRule>

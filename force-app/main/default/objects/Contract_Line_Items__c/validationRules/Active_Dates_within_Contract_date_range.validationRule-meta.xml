@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Dates_within_Contract_date_range</fullName>
+    <active>true</active>
+    <description>This VR ensures that CLI start and end date lies within the Revenue Contract Start and end date.</description>
+    <errorConditionFormula>OR(Start_Date__c &lt; Revenue_Contract_Details__r.Live_Renewed_Date__c ,
+    End_Date__c &gt; Revenue_Contract_Details__r.Contract_End_Date__c 
+  )</errorConditionFormula>
+    <errorMessage>Start and End Dates should fall between Revenue Contract date range.</errorMessage>
+</ValidationRule>

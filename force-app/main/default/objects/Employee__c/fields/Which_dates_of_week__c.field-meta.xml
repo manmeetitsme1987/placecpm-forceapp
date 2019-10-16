@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <fullName>Which_dates_of_week__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES( Location__r.Which_dates_of_week__c , &quot;Sunday&quot;), &quot;Sunday&quot;, NULL)  + BR() + 
+IF(INCLUDES( Location__r.Which_dates_of_week__c , &quot;Monday&quot;), &quot;Monday&quot;, NULL)  + BR() + 
+IF(INCLUDES( Location__r.Which_dates_of_week__c , &quot;Tuesday&quot;), &quot;Tuesday&quot;, NULL) + BR() + 
+IF(INCLUDES( Location__r.Which_dates_of_week__c , &quot;Wednesday&quot;), &quot;Wednesday&quot;, NULL) + BR() + 
+IF(INCLUDES( Location__r.Which_dates_of_week__c , &quot;Thursday&quot;), &quot;Thursday&quot;, NULL) + BR() + 
+IF(INCLUDES( Location__r.Which_dates_of_week__c , &quot;Friday&quot;), &quot;Friday&quot;, NULL) + BR() + 
+IF(INCLUDES( Location__r.Which_dates_of_week__c , &quot;Saturday&quot;), &quot;Saturday&quot;, NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Standard Working Days</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

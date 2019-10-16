@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Contract__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field denotes the parent Revenue Contract.</description>
+    <externalId>false</externalId>
+    <label>Revenue Contract</label>
+    <referenceTo>Revenue_Contract__c</referenceTo>
+    <relationshipLabel>Revenue GL Allocations</relationshipLabel>
+    <relationshipName>Revenue_P_L_Allocations</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

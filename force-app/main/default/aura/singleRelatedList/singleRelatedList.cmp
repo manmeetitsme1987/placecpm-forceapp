@@ -1,0 +1,227 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="SingleRelatedListController">
+    <aura:attribute name="sobjectApiName" type="String" required="true" />    
+    <aura:attribute name="relatedFieldApiName" type="String" required="true"/>    
+    <aura:attribute name="numberOfRecords" type="Integer" default="6"/>    
+    <aura:attribute name="sortedBy" type="String" required="true"/>
+    <aura:attribute name="sortedDirection" type="String" default="ASC"/>    
+    <aura:attribute name="onRowActionHandler" type="Aura.Action"/>    
+    <aura:attribute name="customActions" type="List"/>    
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="columnsWithActions" type="List" access="private"/>
+    <aura:attribute name="fields" type="String" required="true"/>
+    <aura:attribute name="records" type="Object" access="private"/>
+    <aura:attribute name="parentRelationshipApiName" type="String" access="private"/>    
+    <aura:attribute name="sobjectLabel" type="String" access="private"/>    
+    <aura:attribute name="sobjectLabelPlural" type="String" access="private"/>    
+    <aura:attribute name="numberOfRecordsForTitle" type="String" access="private"/>    
+    <aura:attribute name="iconName" type="String" access="private"/>    
+	<aura:attribute name="lstOfRecordType" type="String[]" />
+    <aura:attribute name="isOpen" type="boolean" default="false" />
+    <aura:attribute name="isRtAvailable" type="boolean" default="false" />
+    <aura:attribute name="isNewButton" type="boolean" default="false" />
+    <aura:attribute name="fieldSet3" type="Map" />
+    <aura:attribute name="fieldSet4" type="Map" />
+    <aura:attribute name="requiredFields" type="List" />
+    <aura:attribute name="selectedRecordType" type="String" />
+    <aura:attribute name="value" type="String" default=""/>
+    <aura:attribute name="parentSobjectApiName" type="String" required="true" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.columns}" action="{! c.handleColumnsChange }"/>
+	<aura:handler event="force:showToast" action="{!c.handleToastEvent}"/>  
+    <aura:registerEvent name="singleRelatedListEveny" type="c:SingleRelatedListEveny"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <div class="c-container">
+        <lightning:card class="slds-card_boundary" iconName="{!v.iconName}">
+            
+            <aura:set attribute="actions">
+                <aura:if isTrue ="{!v.isNewButton}">
+                <lightning:button label="New" onclick="{!c.handleCreateRecord}"/>
+                </aura:if>
+            </aura:set>     
+                
+            <aura:set attribute="title">
+                <b><p class="slds-card__header-link" >{!(v.sobjectLabel) + ' (' + (v.numberOfRecordsForTitle) + ')'}</p></b>
+            </aura:set>             
+            <!--aura:set attribute="footer">
+                <aura:if isTrue="{!not(empty(v.records))}">  
+                	<a onclick="{!c.handleGotoRelatedList}">View All</a>
+                </aura:if>
+            </aura:set-->                
+            <aura:if isTrue="{!not(empty(v.records))}">    
+                <div style="height: 300px">                
+                    <lightning:datatable class=""
+                                         columns="{! v.columnsWithActions }"
+                                         data="{! v.records }"
+                                         keyField="id"
+                                         onrowaction="{! c.handleRowAction }"
+                                         hideCheckboxColumn="true"
+                                         resizeColumnDisabled="true"/>                     
+                </div>              
+			</aura:if>
+            
+        </lightning:card>
+        
+    </div>
+	<aura:if isTrue="{!v.isOpen}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+            <aura:if isTrue="{!v.isRtAvailable}">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                        <lightning:icon variant="bare" iconName="utility:close" alternativeText="close" size="x-small" class="closeSplit"/><!-- 540-->
+                    </button>
+                    <h2 id="header43" class="slds-text-heading--medium">New Record</h2>
+                </div>
+                
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size--1-of-2 slds-large-size--1-of-2">
+                             <div class="slds-align--absolute-center">Select a Record Type</div>                            
+                        </div>
+                        <div class="slds-size--1-of-2 slds-large-size--1-of-2">
+                            <lightning:radioGroup name="radioGroup"
+                                                  aura:id="rtSelect"
+                                                  value = "{!v.value}"
+                          options="{! v.lstOfRecordType }"
+                                                   />
+                            
+                        </div>&nbsp; &nbsp;
+                    </div>                   
+                </div>
+                
+                <div class="slds-modal__footer">
+                    <lightning:button class="slds-button slds-button--neutral" onclick="{!c.closeModal}">Cancel</lightning:button>
+                    <lightning:button class="slds-button slds-button--brand" onclick="{!c.createRecord}">Next</lightning:button>
+                </div>
+            </div>
+                </aura:if>
+            <aura:if isTrue="{! !v.isRtAvailable}">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                        <lightning:icon variant="bare" iconName="utility:close" alternativeText="close" size="x-small"/>
+                    </button>
+                    <h2 id="header43" class="slds-text-heading--medium">New Record</h2>
+                </div>
+                
+                <div class="slds-modal__content slds-p-around--medium">
+                     <aura:if isTrue="{!v.selectedRecordType != null}">           
+                    <lightning:recordEditForm objectApiName="{!v.sobjectApiName}" onsubmit="{!c.save}"
+                                              onsuccess="{!c.handleSuccessNew}" recordTypeId = "{!v.selectedRecordType}"
+                                              >
+                        <lightning:messages />
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet3}" var="item" indexVar="key">
+                                    <aura:if isTrue="{!item.key == v.parentSobjectApiName}">
+                                        <aura:if isTrue="{!item.value}">
+                                        	<lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            <aura:set attribute="else">
+                                                <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!item.value}">
+                                                <lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}"/>
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}"/>
+                                                </aura:set>
+                                        	</aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:iteration>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet4}" var="item" indexVar="key">
+                                    <aura:if isTrue="{!item.key == v.parentSobjectApiName}">
+                                        <aura:if isTrue="{!item.value}">
+                                        	<lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            <aura:set attribute="else">
+                                                <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!item.value}">
+                                                <lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}"/>
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}"/>
+                                                </aura:set>
+                                        	</aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                    
+                                </aura:iteration>
+                            </div>
+                        </div>
+                         <div style="text-align:right">
+                             <lightning:button  onclick="{!c.closeModal}" label="Cancel" />
+                            <lightning:button variant="brand" type="submit" class="bgColorbtn" name="save" label="Save" />
+                        </div>
+                    </lightning:recordEditForm>
+                    </aura:if>
+                    <aura:if isTrue="{!v.selectedRecordType == null}">           
+                    <lightning:recordEditForm objectApiName="{!v.sobjectApiName}" onsubmit="{!c.save}"
+                                              onsuccess="{!c.handleSuccessNew}"
+                                              onerror="{!c.handleOnError}"
+                                              >
+                        <lightning:messages />
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet3}" var="item" indexVar="key">
+                                    <aura:if isTrue="{!item.key == v.parentSobjectApiName}">
+                                        <aura:if isTrue="{!item.value}">
+                                            <lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            <aura:set attribute="else">
+                                                <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!item.value}">
+                                                <lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}"/>
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}"/>
+                                                </aura:set>
+                                        	</aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:iteration>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet4}" var="item" indexVar="key">
+                                    <aura:if isTrue="{!item.key == v.parentSobjectApiName}">
+                                        <aura:if isTrue="{!item.value}">
+                                        	<lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            <aura:set attribute="else">
+                                                <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" value="{!v.recordId}"/>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!item.value}">
+                                                <lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}"/>
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}"/>
+                                                </aura:set>
+                                        	</aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                    
+                                </aura:iteration>
+                            </div>
+                        </div>
+                         <div style="text-align:right">
+                             <lightning:button  onclick="{!c.closeModal}" label="Cancel" />
+                            <lightning:button variant="brand" type="submit" class="bgColorbtn" name="save" label="Save" />
+                        </div>
+                    </lightning:recordEditForm>
+                    </aura:if>
+                </div>
+                
+                
+            </div>
+                </aura:if>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+</aura:component>

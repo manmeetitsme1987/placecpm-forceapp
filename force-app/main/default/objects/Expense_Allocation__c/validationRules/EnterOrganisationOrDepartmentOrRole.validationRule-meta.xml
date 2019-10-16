@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnterOrganisationOrDepartmentOrRole</fullName>
+    <active>true</active>
+    <description>PCPM-235 | When record is being created, any of these 3 fields need to be populated - Organization, Department, or Role.</description>
+    <errorConditionFormula>AND( ISBLANK( Organisation__c ),  
+     ISBLANK( Department__c ), 
+     ISBLANK( Role__c)
+ )</errorConditionFormula>
+    <errorMessage>Please enter the value of organization or department or role.</errorMessage>
+</ValidationRule>

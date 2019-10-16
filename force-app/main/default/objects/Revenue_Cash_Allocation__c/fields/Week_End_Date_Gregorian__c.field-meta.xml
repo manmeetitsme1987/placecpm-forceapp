@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Week_End_Date_Gregorian__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+            MOD( Cash_Date__c - DATE(1900, 1, 7), 7),
+            0, Cash_Date__c ,
+            1, Cash_Date__c+6,
+            2, Cash_Date__c+5,
+            3, Cash_Date__c+4,
+            4, Cash_Date__c+3,
+            5, Cash_Date__c+2,
+            6, Cash_Date__c+1,
+            null
+            )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Week End Date Gregorian</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

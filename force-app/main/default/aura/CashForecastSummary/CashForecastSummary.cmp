@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+	<aura:attribute type="String" name="colorFont" default='blue'/>
+    <aura:attribute type="currency" name="valueAmount" default='$3250.00'/>
+    <aura:attribute type="String" name="amountDescription" default='Actual Bookings'/>
+<div class="slds-page-header slds-page-header_record-home slds-theme_default width80">
+    <center>
+    <h1>
+    	<span class="slds-page-header__title slds-truncate" style="{! 'color:' + v.colorFont+';font-size: large;'}" title="Cash Forecast">{!v.valueAmount}</span>
+    </h1>
+    <h3>
+    	<span class="slds-truncate" title="Cash Forecast">{!v.amountDescription}</span>
+    </h3>
+        </center>
+    <!-- code -->
+</div>
+</aura:component>

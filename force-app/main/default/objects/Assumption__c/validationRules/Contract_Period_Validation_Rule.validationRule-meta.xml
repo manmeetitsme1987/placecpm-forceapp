@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Period_Validation_Rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( Contract_Period__c &lt; 0,  Contract_Period__c &gt; 60,  Contract_Period__c &gt;  Forecast_Duration__c ,  ISBLANK(Contract_Period__c) )</errorConditionFormula>
+    <errorMessage>Contract Period can not be greater than 60 and less than 0 and can not be greater than Forecast Duration.</errorMessage>
+</ValidationRule>

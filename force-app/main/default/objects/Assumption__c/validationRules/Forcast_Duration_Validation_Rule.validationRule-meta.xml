@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forcast_Duration_Validation_Rule</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR( Forecast_Duration__c &gt; 60,  Forecast_Duration__c &lt; 0, ISBLANK(Forecast_Duration__c))</errorConditionFormula>
+    <errorMessage>Forecast Duration can not be greater than 60 and less than 0.</errorMessage>
+</ValidationRule>

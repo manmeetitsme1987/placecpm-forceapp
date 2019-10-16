@@ -1,0 +1,58 @@
+<aura:component >
+    
+    <aura:attribute name="lstSelectedRecords" type="List" default="[]" />
+    <aura:attribute name="lstOptions" type="object[]" default="[]" />
+    <aura:attribute name="listOfSearchRecords" type="List" />
+    <aura:attribute name="SearchKeyWord" type="string"/>
+    <aura:attribute name="objectAPIName" type="string" default=""/>
+    <aura:attribute name="IconName" type="string" default=""/>
+    <aura:attribute name="label" type="string" default=""/>
+    <aura:attribute name="isblur" type="Boolean" default="true"/>
+    <aura:attribute name="Message" type="String" default=""/>
+    
+    <aura:registerEvent name="mutiSelectEvnt" type="c:MultiSelectLookupEvent"/> 
+    
+    <div  aura:id="searchRes" class="slds-form-element slds-lookup slds-is-close" style="margin-top:1%">
+        <div class="slds-form-element__label" style="display:inline-block;padding: 0.50rem;width:125px;text-align: center;">{!v.label}</div>
+        <div class="" style="display:inline-block;width:300px;">
+            
+                <div aura:id="lookup-pill" class="">
+                    <div aura:id="lookupField" class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"  style="width: 100%;">
+                        
+                        <ui:inputText click="{!c.onfocus}"
+                                      keydown="{!c.inputKeydown}"
+                                      updateOn="keyup"
+                                      keyup="{!c.keyPressController}"
+                                      class="slds-lookup__search-input slds-input inputSize"
+                                      value="{!v.SearchKeyWord}"
+                                      blur="{!c.onblur}"
+                                      placeholder="search.."/>
+
+                        <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+                            <lightning:icon iconName="utility:search" size="x-small" alternativeText="icon"/>
+                        </span>
+                    </div> 
+
+                </div>
+            
+        </div>
+        <ul style="min-height:40px;margin-top:0px;width:300px;margin-left: 78.5%; !important" class="slds-listbox slds-listbox_vertical slds-dropdown_fluid slds-lookup__menu slds" role="listbox">
+            <lightning:spinner class="slds-hide" variant="brand" size="small" aura:id="mySpinner"/>
+            <center> {!v.Message}</center>
+            <aura:iteration items="{!v.listOfSearchRecords}" var="singleRec">
+                <li role="presentation" class="slds-listbox__item">
+                    <span id="listbox-option-unique-id-01" class="slds-media slds-listbox__option slds-listbox__option_entity" role="option">
+                        <span class="slds-media__figure">
+                            <span class="slds-icon_container" title="Description of icon when needed">
+                                <input type="checkbox" data-value="{!singleRec.value}" data-label="{!singleRec.label}" name="options" id="{!singleRec.value}" value="checkbox-44" checked="" onblur="{!c.onblur}" onmousedown="{!c.onmouseDown}" onclick="{!c.selectRecord}"/>
+                            </span>
+                        </span>    
+                        <span class="slds-media__body">  
+                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">{!singleRec.label}</span>
+                        </span>
+                    </span>
+                </li>
+            </aura:iteration>
+        </ul>
+    </div>
+</aura:component>

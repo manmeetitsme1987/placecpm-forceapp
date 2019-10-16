@@ -1,0 +1,30 @@
+.THIS .marginTop{
+    margin-top: .5% !important;
+}
+.THIS .marginLeft{
+    margin-left: 0.5% !important;
+}
+.THIS .width12{
+    width:12%;
+}
+.THIS .slds-page-header__name{
+    padding-left:0.75rem;
+}
+.THIS .headerclass {
+    font-weight: unset;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+.THIS .slds-radio_button [type=radio]:checked+.slds-radio_button__label{
+    background-color: #0070d2;
+}
+.THIS .DINLINE{
+    display:inline-block;
+}
+.THIS legend{
+    display:none;
+}
+.THIS .searchButtom .slds-button_brand{
+     background-color: #0070d2;
+     margin-left:1rem;
+}

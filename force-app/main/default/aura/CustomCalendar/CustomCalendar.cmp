@@ -1,0 +1,172 @@
+<aura:component controller="CustomCalendarCntrl">
+    <aura:attribute name="showCalendar" type="Boolean" Default="false"/>
+    <aura:attribute name="currentYear" type="Integer" />
+    <aura:attribute name="selectedYear" type="Integer" />
+    <aura:attribute name="selectedMonth" type="String"/>
+    <aura:attribute name="selectedMonthInteger" type="Integer"/>
+    <aura:attribute name="minYear" type="String"/>
+    <aura:attribute name="maxYear" type="String"/>
+    <aura:attribute name="view" type="String"/>
+    <aura:attribute name="yearList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="weekDatesMap" type="Map"/>
+    <aura:attribute name="weekDate" type="Map"/>
+
+    <aura:handler name="change" value="{!v.selectedMonth}" action="{!c.setSelectMonthInteger}"/>
+    <div>
+        <div class="slds-form-element slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                <aura:if isTrue="{!v.view == 'Year'}">
+                    <input type="text" id="date-input-id" placeholder=" " class="slds-input" value="{!v.selectedYear}"
+                        onclick="{!c.showCalendar}"  onblur="{!c.hideCalendar}"  onkeydown="{!c.inputKeydown}" />
+                </aura:if>
+                 <aura:if isTrue="{!v.view == 'Month' || v.view == 'Quarter' }">
+                    <input type="text" id="date-input-id" placeholder=" " class="slds-input" value="{!v.selectedMonth + ', ' + v.selectedYear}"
+                        onclick="{!c.showCalendar}" onblur="{!c.hideCalendar}"  onkeydown="{!c.inputKeydown}" />
+                </aura:if>
+                 <aura:if isTrue="{!v.view == 'Week'}">
+                    <input type="text" id="date-input-id" placeholder=" " class="slds-input" value="{!v.weekDate}"
+                        onclick="{!c.showCalendar}" onblur="{!c.hideCalendar}"  onkeydown="{!c.inputKeydown}" />
+                </aura:if>
+                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" 
+                    title="Select a date">
+                    <lightning:icon iconName="utility:event" alternativeText="Approved" size="xx-small"/>
+                    <span class="slds-assistive-text">Select a date</span>
+                </button>
+            </div>
+            <aura:if isTrue="{!v.showCalendar}">
+                <div aria-hidden="false" aria-label="Date picker: June" class="slds-datepicker slds-dropdown slds-dropdown_left"
+                    role="dialog" style="max-height:20rem;overflow:scroll" onmousedown="{!c.inputKeydown}">
+                    <div class="slds-datepicker__filter slds-grid">
+                        <div class="slds-datepicker__filter_month slds-grid slds-grid_align-spread slds-grow">
+                            <div class="slds-align-middle">
+                                <button id="nextButton" class="slds-button slds-button_icon slds-button_icon-container" title="Previous Month" onmousedown="{!c.decreaseYear}">
+                                    <lightning:icon iconName="utility:left" alternativeText="Approved" size="xx-small"/>
+                                    <span class="slds-assistive-text">Previous Month</span>
+                                </button>
+                            </div>
+                            <h2 aria-atomic="true" aria-live="assertive" class="slds-align-middle" id="month">{!v.currentYear}</h2>
+                            <div class="slds-align-middle">
+                                <button aura:id="prevButton" class="slds-button slds-button_icon slds-button_icon-container" title="Next Month" onmousedown="{!c.increaseYear}">
+                                    <lightning:icon iconName="utility:right" alternativeText="Approved" size="xx-small"/>
+                                    <span class="slds-assistive-text">Next Month</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <aura:if isTrue="{!v.view == 'Month' ? true : false}">
+                    <table aria-labelledby="month" aria-multiselectable="true" class="slds-datepicker__month"
+                        role="grid" style="min-width:15rem">
+                        <tbody>
+                              <tr>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'January' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="January">Jan</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'February' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="February">Feb</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'March' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="March">Mar</span></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'April' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="April">Apr</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'May' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="May">May</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'June' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="June">Jun</span></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'July' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="July">Jul</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'August' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="August">Aug</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'September' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="September">Sep</span></a>
+                                </td>
+                            </tr>
+                            <tr class="slds-has-multi-selection">
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'Ocotober' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="Ocotober">Oct</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'November' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="November">Nov</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'December' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="December">Dec</span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </aura:if>
+                    <aura:if isTrue="{!v.view == 'Quarter' ? true : false}">
+                    <table aria-labelledby="month" aria-multiselectable="true" class="slds-datepicker__month"
+                        role="grid" style="min-width:15rem">
+                        <tbody>
+                              <tr>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'Q1' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="Q1">Q1</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'Q2' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="Q2">Q2</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'Q3' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="Q3">Q3</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedMonth == 'Q4' &amp;&amp; v.selectedYear == v.currentYear ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectMonth}" data-month="Q4">Q4</span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </aura:if>
+                    <aura:if isTrue="{!v.view == 'Year' ? true : false}">
+                    <table aria-labelledby="month" aria-multiselectable="true" class="slds-datepicker__month"
+                        role="grid" style="min-width:15rem">
+                        <tbody>
+                              <tr>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedYear == 2018 ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectYear}" data-year="2018">2018</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedYear == 2019 ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectYear}" data-year="2019">2019</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedYear == 2020 ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectYear}" data-year="2020">2020</span></a>
+                                </td>
+                                <td aria-selected="false" role="gridcell">
+                                    <a><span class="{!v.selectedYear == 2021 ? 'day slds-button_brand' : 'day'}" onmousedown="{!c.selectYear}" data-year="2021">2021</span></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </aura:if>
+                    <aura:if isTrue="{!v.view == 'Week' ? true : false}">
+                        <table aria-labelledby="month" aria-multiselectable="true" class="slds-datepicker__month"
+                        role="grid" style="min-width:15rem ; ">
+                        <tbody style="">
+                            <aura:iteration items="{!v.weekDatesMap}" var="item" indexVar="key">
+                                <aura:if isTrue="{!item.key == v.currentYear + ''}">
+                                <aura:iteration items="{!item.value}" var="itemWeek" indexVar="keyWeek">
+                                    <tr>
+                                        <td aria-selected="false" role="gridcell">
+                                            <a><span class="{!v.weekDate == itemWeek ? 'weekday slds-button_brand' : 'day'}" onmousedown="{!c.selectWeekDate}" data-date="{!itemWeek}">{!itemWeek}</span></a>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                                </aura:if>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                    </aura:if>
+                </div>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

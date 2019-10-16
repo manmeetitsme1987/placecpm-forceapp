@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>P_L_Category_A__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>P&amp;L Category A</label>
+    <referenceTo>P_L_Category__c</referenceTo>
+    <relationshipLabel>P&amp;L Formulas</relationshipLabel>
+    <relationshipName>P_L_Formulas</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

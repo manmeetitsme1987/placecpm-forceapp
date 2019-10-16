@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompEndDateGreaterThanEmpEndDate</fullName>
+    <active>true</active>
+    <errorConditionFormula>End_Date__c  &gt; Employee__r.Employee_End_Date__c</errorConditionFormula>
+    <errorDisplayField>End_Date__c</errorDisplayField>
+    <errorMessage>Compensation End Date Should not be Greater than Employee’s End Date.</errorMessage>
+</ValidationRule>

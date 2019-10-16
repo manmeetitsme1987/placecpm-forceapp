@@ -1,0 +1,657 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes"
+    access="global" controller="PAndLTabController">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <aura:attribute name="plStatement" type="Object[]" />
+    <aura:attribute name="plStatementHeader" type="Object[]" />
+    <aura:attribute name="showdDetail" type="Boolean[]" default="" />
+    <aura:attribute name="isExpanded" type="Boolean" default="" />
+    <aura:attribute name="dateRange" type="Map"/>
+    <aura:attribute name="monthAndYearList" type="List"/>
+    <aura:attribute name="expandedRows" type="Set"/>
+    <aura:attribute name="timeFrame" type="String" default="Month"/>
+    <aura:attribute name="filterType" type="String"/>
+    <aura:attribute name="yearList" type="List"/>
+    <aura:attribute name="yearsTobeFetched" type="List"/>
+    <aura:attribute name="currentYear" type="Integer"/>
+    <aura:attribute name="startYear" type="Integer"/>
+    <aura:attribute name="minyearStart" type="Integer"/>
+    <aura:attribute name="maxYearStart" type="Integer"/>
+    <aura:attribute name="minyearEnd" type="Integer"/>
+    <aura:attribute name="maxYearEnd" type="Integer"/>
+    <aura:attribute name="endYear" type="Integer"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="listRelatedList" type="List" />
+    <aura:attribute name="fieldSet1" type="Map" />
+    <aura:attribute name="fieldSet2" type="Map" />
+    <aura:attribute name="fieldSet3" type="Map" />
+    <aura:attribute name="fieldSet4" type="Map" />
+    <aura:attribute name="fieldSet5" type="Map" />
+    <aura:attribute name="fieldSet6" type="Map" />
+    <aura:attribute name="sobjectApiNameAllocation" type="String" />
+    <aura:attribute name="requiredFields" type="List" />
+    <aura:attribute name="historyListSplit" type="List" />
+    <aura:attribute name="sobjectApiName" type="String" />
+    <aura:attribute name="sobjectApiLabel" type="String" />
+    <aura:attribute name="glCodeId" type="String" />
+    <aura:attribute name="showRelated" type="Boolean" default="false" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="isAddNew" type="Boolean" default="false" />
+    <aura:attribute name="isRTAvailable" type="Boolean" default="false" />
+    <aura:attribute name="lstOfRecordType" type="String[]" />
+    <aura:attribute name="selectedValue" type="String" />
+    <aura:attribute name="selectedRecordType" type="String" />
+    <aura:attribute name="ForecastAndActualViewButtom" type="List" />
+    <aura:attribute name="FieldIdUpdated" type="String"/>
+    <aura:attribute name="startMonth" type="String"/>
+    <aura:attribute name="endMonth" type="String"/>
+    <aura:attribute name="isOpen" type="boolean" default="false" />
+    <aura:attribute name="index" type="String"/>
+    <aura:attribute name="dataColumn" type="String"/>
+    <aura:attribute name="fieldName" type="String"/>
+    <aura:attribute name="namespaceString" type="String" default=''/>
+    <aura:attribute name="assumption" type="Object" />
+    <aura:attribute name="showAssumption" type="Boolean" default="false" />
+    <aura:attribute name="editAssumption" type="Boolean" default="false" />
+    <aura:attribute name="objectApiName" type="String" default="" />
+    <aura:attribute name="fields" type="String[]"/>
+    <aura:attribute name="isEditable" type="Boolean" default="true" />
+    <aura:attribute name="selectedRecordTypeName" type="String" /><!--515 / CPM-569-->
+    <aura:attribute name="isExpandNeeded" type="Boolean" default="true" />
+
+    <aura:handler name="singleRelatedListEveny" event="c:SingleRelatedListEveny" action="{!c.handleRelatedComponentEvent}"/> 
+    <aura:handler name="plFilters" event="c:PLFilter" action="{!c.applyFilters}"/>
+    <aura:handler name="actualForecastViewEvent" event="c:ActualForecastViewEvent" action="{!c.viewChange}"/>
+    <aura:handler name="cashForecastFilterEvent" event="c:CashForecastFilterEvent" action="{!c.changeTimeFrame}" phase="capture"/>
+    <aura:handler  event="c:Confirmation_Box_Event" action="{!c.deleteRevenueAcc}"/>  <!-- PCPM-438-->
+    <lightning:overlayLibrary aura:id='overlayLib'/><!--PCPM-438 -->
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+
+    <div class="exampleHolder ">
+        <lightning:spinner aura:id="mySpinner" alternativeText="Loading" variant="brand"
+            size="medium" class="slds-hide slds-spinner_brand positionfixed" />
+    </div>
+    <c:CashForecastHeader headerLable="P&amp;L" />
+    <div class="slds-box">
+        <c:CashForecastFilter currentYearInput="{!v.currentYear}" yearList="{!v.yearList}" selectYearStart="{!v.startYear}" selectYearEnd = "{!v.endYear}" startRange="{!v.startMonth}" endRange="{!v.endMonth}" minyearStart="{!v.minyearStart}" maxYearStart="{!v.maxYearStart}" 
+               minyearEnd="{!v.minyearEnd}" maxYearEnd="{!v.maxYearEnd}" ForecastAndActualViewButtom="{!v.ForecastAndActualViewButtom}"/>
+    </div>
+    <div class="slds-grid">
+        <div class="slds-col">
+                    <div id="mySidenav" class="{! and(v.showAssumption, v.assumption.Id != null) ? 'sidenav borderRight' : 'sidenav'}">
+                        <aura:if isTrue="{! and(v.showAssumption, v.assumption.Id != null)}">
+                            <div class="borderBottom" style="padding:0!important;">
+                                <div class="slds-grid slds-m-bottom_small margin1Top noLeftborder">
+                                    <header class="slds-col slds-col--padded slds-media slds-media_center slds-has-flexi-truncate">
+                                        <div class="slds-media__body">
+                                            <h2 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate">{! $Label.c.Assumption}</h2>
+                                        </div>
+                                    </header>
+                                </div>
+                                <div id="divRec" class="borderLeft slds-col--padded" style="min-height:24rem; margin-top:1rem;">    
+                                    <lightning:recordForm aura:id="recordViewForm" 
+                                                            objectApiName="{!v.objectApiName}"
+                                                            columns="2"
+                                                            fields="{! v.fields}"
+                                                            recordId="{! v.assumption.Id}"
+                                                            mode="View"
+                                                            onload = "{!c.onLoad}"
+                                                            onsuccess="{!c.onSuccess}"
+                                                            onerror="{!c.onError}"/>   
+                                    
+                                </div>
+                            </div>
+                            
+                        </aura:if>
+                    </div>
+                    <div class="{! v.showAssumption ? 'borderBottom greyBackground' : 'whiteBackground' }">
+                        <lightning:icon class="assumption" iconName="standard:shipment" size="medium" onclick="{! c.openNav }" title="{! v.showAssumption ? $Label.c.HideAssumption : $Label.c.ShowAssumption}"/>
+                    </div>
+            </div>
+            <div class="slds-col slds-size_12-of-12" style="max-width:97%;">
+        <div style="padding-right:1rem">
+        <div class="MDiv slds-box" style="padding:0px;">
+        <div style="overflow:scroll;margin-let:17rem;max-height:70vh;margin-top:1rem" aura:id = "mainComponent" >
+            <table class="slds-table slds-table_cell-buffer  mx100 fixed_header" style="width:unset">
+            <thead>
+                <tr class="slds-line-height_reset colorbrand headerpclass ">
+                    <th class="headColumn fixedHeader headColumntopRow" scope="col" style="padding-left:.5rem ; min-width:20rem">
+                        <div class="slds-truncate " title="GL Accounts">{!$Label.c.PLTabAccountLabel}</div>
+                    </th>
+                    <aura:iteration items="{!v.plStatementHeader}" var="item" indexVar="index">
+                    <th class="textRight minWidth fixedHeader" scope="col">
+                        <aura:if isTrue="{!!item.expanded}">
+                            <div class="slds-truncate" title="January">
+                                <p class="MonthHeader">{!item.header}</p>
+                                <aura:if isTrue="{! v.isExpandNeeded}">
+                                    <a data-conId="{!index}" onclick="{!c.coulmnExpand}">
+                                        <lightning:icon iconName="utility:right" alternativeText="Approved" size="xx-small"/>
+                                    </a>
+                                </aura:if>
+                            </div>
+                            <aura:set attribute="else">
+                                <div class="slds-truncate" title="January">
+                                    <center>
+                                        <p class="MonthHeader">{!item.header}</p>
+                                        <a data-conId="{!index}" onclick="{!c.coulmnExpand}">
+                                            <lightning:icon iconName="utility:down" alternativeText="Approved" size="xx-small"/>
+                                        </a>
+                                    </center>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr class="slds-line-height_reset">
+                                            <th class="textRight">
+                                                <p class="colorblack">{!$Label.c.PLTabForecast}</p>
+                                            </th>
+                                            <th class="textRight" scope="col">
+                                                <p class="colorblack">{!$Label.c.PLTabActual}</p>
+                                            </th>
+                                            <th class="textRight" scope="col">
+                                                <p class="colorblack">{!$Label.c.PLTabVariance}</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </aura:set>
+                        </aura:if>
+                    </th>
+                    </aura:iteration>
+                 </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.plStatement}" var="item" indexVar="index">
+                    <aura:if isTrue="{!(item.showHeader &amp;&amp; !item.sameRowDisplay)}">
+                        <tr class="slds-hint-parent">
+                            <td class="headColumn" data-label="Account Name"  style="padding-left:.5rem">
+                                <b>{!item.HeaderTitle}</b>
+                            </td>
+                            <td class="visiblityNone" colspan="{!item.pls.valuesList.length}">
+                                <b>Hide</b>
+                            </td>
+                        </tr>
+                    </aura:if>
+                    <tr class="{!'slds-hint-parent ' + if(item.isChild , 'child ' + item.pls.glcode + '_child' , 'GLParent')}">
+                        <aura:if isTrue="{!item.sameRowDisplay &amp;&amp; !item.isChild}">
+                            <td class="headColumn" data-label="{!item.HeaderTitle}" style="padding-left:.5rem">
+                                {!item.HeaderTitle}
+                            </td>
+                        </aura:if>
+                        <aura:if isTrue="{!item.sameRowDisplay &amp;&amp; item.isChild}">
+                            <td class="{!item.isEdited == true ? 'headColumn childEdited' : 'headColumn'}" data-label="{!item.HeaderTitle}" style="padding-left:.5rem">
+                                <!-- PCPM-438 -->
+                                <a data-conId="{!item.accountId}" onclick="{!c.openAccount}" style="margin-right:0.4rem;">
+                                    {!item.HeaderTitle}
+                                </a>
+                                <div data-id="{!item.accountId}" 
+                                     onclick="{!c.confimationBox}"
+                                     title = "{!item.pls.glCodeType == 'Revenue'? $Label.c.Delete_Revenue_Account : $Label.c.Delete_Expense_Account}"
+                                     class="slds-box" 
+                                     style="display:inline;padding-top: 0.1rem;padding-bottom: 0.1rem;padding-left: 0.2rem;padding-right: 0.2rem;cursor: pointer;" >
+                                    <lightning:icon iconName="utility:delete" alternativeText="Delete"  style="" class="" size="x-small"/>
+                                </div>
+                            </td>
+                        </aura:if>
+                        <aura:if isTrue="{!!item.sameRowDisplay}">
+                            <td class="headColumn" data-label="Account Name" style="padding-left:.5rem">
+                                <p style="display : inline-block; margin-right:0.4rem">{!item.pls.glcodeAndName} </p>
+                                    <aura:if isTrue="{!item.isExpanded}">
+                                        <div id="{!item.pls.glcode + '_dash'}" title = "{!$Label.c.Collapse}" data-conId="{!item.pls.glcode + ':' + index}" style="display:inline;padding-top: 0.1rem;padding-bottom: 0.1rem;padding-left: 0.2rem;padding-right: 0.2rem;cursor: pointer;" data-wrapId="{!item.wrapId}" onclick="{!c.collapsRow}" class="slds-box">
+                                                <lightning:icon iconName="utility:chevrondown" alternativeText="Approved" size="x-small"/>
+                                            </div>
+                                            <div data-conId="{!item.pls.glcode}" 
+                                                onclick="{!c.addAccount}" 
+                                                class="slds-box" 
+                                                title = "{!item.pls.glCodeType == 'Revenue'? $Label.c.Add_Revenue_Account : $Label.c.Add_Expense_Account}"
+                                                style="display:inline;padding-top: 0.1rem;padding-bottom: 0.1rem;padding-left: 0.2rem;padding-right: 0.2rem;cursor: pointer;" >
+                                                <lightning:icon iconName="utility:add" alternativeText="Approved"  style="" class="" size="x-small"/>
+                                            </div>
+                                            <aura:set attribute="else">
+                                                <div id="{!item.pls.glcode + '_add'}" title = "{!$Label.c.Expand}" data-conId="{!item.pls.glcode + ':' + index}" data-wrapId="{!item.wrapId}" style="display:inline;padding-top: 0.1rem;padding-bottom: 0.1rem;padding-left: 0.2rem;padding-right: 0.2rem;cursor: pointer;" onclick="{!c.expandRow}" class="slds-box">
+                                                    <lightning:icon iconName="utility:chevronright" alternativeText="Approved" size="x-small"/>
+                                                </div>
+                                                <div data-conId="{!item.pls.glcode}" 
+                                                    onclick="{!c.addAccount}" 
+                                                    class="slds-box" 
+                                                    title = "{!item.pls.glCodeType == 'Revenue'? $Label.c.Add_Revenue_Account : $Label.c.Add_Expense_Account}"
+                                                    style="display:inline;padding-top: 0.1rem;padding-bottom: 0.1rem;padding-left: 0.2rem;padding-right: 0.2rem;cursor: pointer;" >
+                                                    <lightning:icon iconName="utility:add" alternativeText="Approved"  style="" class="" size="x-small"/>
+                                                </div>
+                                            </aura:set>
+                                    </aura:if> 
+                            </td>
+                        </aura:if>
+                        <aura:iteration items="{!item.pls.valuesList}" var="months" indexVar="monthIndex">
+                        <td>
+                            <aura:if isTrue="{!!months.columnExpanded}">
+                                <div class="slds-truncate" title="Cloudhub">
+                                    <p data-type="{!item.pls.type}" data-parentIndex="{!item.pls.parentIndex}" data-conId="{!item.pls.glcode + ':' + index}" data-wrapId="{!item.wrapId}" ondblclick="{!c.expandRow}" class="{!months.defaultValue >= 0 ? 'Black' : 'Red'}">
+                                        <aura:if isTrue="{! or(v.filterType == 'Forecast',v.filterType =='Actuals')}">
+                                            <aura:if isTrue="{!v.filterType == 'Forecast'}">
+                                                <div class="slds-truncate" title="Forecast">
+                                                    <aura:if isTrue="{!months.inlineEditForecast &amp;&amp; item.isChild}">
+                                                        <div>
+                                                            <ui:inputNumber class="field" value="{!months.forecast}"/>
+                                                            <span class="iconclass">
+                                                                <a onclick="{!c.inLineEditSave}"  data-value="{!months.forecast}" data-accounIdAndMonth="{!item.accountId + ':' + months.month}" data-row="{!index}" 
+                                                                   data-name="inLineEditForecast" data-glcode="{!item.pls.glcode}" data-parentIndex="{!item.parentIndex}" data-year="{!months.year}" data-column="{!monthIndex}">
+                                                                    <lightning:icon iconName="utility:check" alternativeText="Approved" size="xx-small" /></a>
+                                                                <a onclick="{!c.inLineEditCancel}" data-row="{!index}" data-month="{!monthIndex}" data-name="inLineEditForecast" >
+                                                                    <lightning:icon iconName="utility:close" alternativeText="Approved" size="xx-small" class="paddinghalfrem"/></a> 
+                                                            </span>
+                                                        </div>
+                                                        <aura:set attribute="else">
+                                                            <aura:if isTrue="{!item.isChild}">
+                                                                <p class="{!months.forecast >= 0 ? 'Black' : 'Red'}" ondblclick="{!c.inlineEdit}" data-name="inLineEditForecast" data-row="{!index}" data-month="{!monthIndex}">
+                                                                    <ui:outputCurrency value="{!months.forecast}"/>
+                                                                </p>
+                                                                <aura:set attribute="else">
+                                                                    <p data-type="{!item.pls.type}" class="{!months.forecast >= 0 ? 'Black' : 'Red'}" data-parentIndex="{!item.pls.parentIndex}" data-conId="{!item.pls.glcode + ':' + index}" 
+                                                                       data-wrapId="{!item.wrapId}" ondblclick="{!c.expandRow}">
+                                                                        <ui:outputCurrency value="{!months.forecast}"/>
+                                                                    </p>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if> 
+                                                </div>
+                                                <aura:set attribute="else">
+                                                    <div class="slds-truncate" title="Actual">
+                                                        <aura:if isTrue="{!months.inlineEditActual &amp;&amp; item.isChild}">
+                                                           <div>
+                                                                <ui:inputNumber class="field" value="{!months.actual}"/>
+                                                                <span class="iconclass">
+                                                                    <a onclick="{!c.inLineEditSave}"  data-value="{!months.actual}" data-accounIdAndMonth="{!item.accountId + ':' + months.month}" data-row="{!index}" 
+                                                                        data-name="inLineEditActual" data-glcode="{!item.pls.glcode}" data-wrapId="{!item.wrapId}" data-year="{!months.year}" data-column="{!monthIndex}">
+                                                                        <lightning:icon iconName="utility:check" alternativeText="Approved" size="xx-small" /></a>
+                                                                    <a onclick="{!c.inLineEditCancel}" data-row="{!index}" data-month="{!monthIndex}" data-name="inLineEditActual">
+                                                                        <lightning:icon iconName="utility:close" alternativeText="Approved" size="xx-small" class="paddinghalfrem"/></a> 
+                                                                </span>
+                                                            </div>
+                                                            <aura:set attribute="else">
+                                                             <aura:if isTrue="{!item.isChild}">
+                                                                    <p class="{!months.actual >= 0 ? 'Black' : 'Red'}" ondblclick="{!c.inlineEdit}" data-name="inLineEditActual" data-row="{!index}" data-month="{!monthIndex}">
+                                                                        <ui:outputCurrency value="{!months.actual}"/>
+                                                                    </p>
+                                                                <aura:set attribute="else">
+                                                                    <p data-type="{!item.pls.type}" class="{!months.actual >= 0 ? 'Black' : 'Red'}" data-parentIndex="{!item.pls.parentIndex}" data-conId="{!item.pls.glcode + ':' + index}" data-wrapId="{!item.wrapId}" ondblclick="{!c.expandRow}">
+                                                                        <ui:outputCurrency value="{!months.actual}"/>
+                                                                    </p>
+                                                                </aura:set>
+                                                             </aura:if>
+                                                            </aura:set>
+                                                        </aura:if> 
+                                                    </div>
+                                                </aura:set>
+                                            </aura:if>
+                                            <aura:set attribute="else">
+                                                <ui:outputCurrency value="{!months.defaultValue}"/>
+                                            </aura:set>
+                                        </aura:if>
+                                    </p>
+                                </div>
+                                <aura:set attribute="else">
+                                    <table class="slds-table slds-table_cell-buffer">
+                                        <tbody>
+                                            <tr class="slds-hint-parent">
+                                                <td data-label="Forecast" id="{!index + ':' + monthIndex + ':' + 'inLineEditForecast'}">
+                                                    <div class="slds-truncate" title="Forecast">
+                                                            <aura:if isTrue="{!months.inlineEditForecast &amp;&amp; item.isChild}">
+                                                                <div>
+                                                                    <ui:inputNumber class="field" value="{!months.forecast}"/>
+                                                                    <span class="iconclass">
+                                                                        <a onclick="{!c.inLineEditSave}"  data-value="{!months.forecast}" data-accounIdAndMonth="{!item.accountId + ':' + months.month}" data-row="{!index}" 
+                                                                            data-name="inLineEditForecast" data-glcode="{!item.pls.glcode}" data-parentIndex="{!item.parentIndex}" data-year="{!months.year}" data-column="{!monthIndex}">
+                                                                            <lightning:icon iconName="utility:check" alternativeText="Approved" size="xx-small" /></a>
+                                                                        <a onclick="{!c.inLineEditCancel}" data-row="{!index}" data-month="{!monthIndex}" data-name="inLineEditForecast" >
+                                                                            <lightning:icon iconName="utility:close" alternativeText="Approved" size="xx-small" class="paddinghalfrem"/></a> 
+                                                                    </span>
+                                                                </div>
+                                                            <aura:set attribute="else">
+                                                                <aura:if isTrue="{!item.isChild}">
+                                                                    <p class="{!months.forecast >= 0 ? 'Black' : 'Red'}" ondblclick="{!c.inlineEdit}" data-name="inLineEditForecast" data-row="{!index}" data-month="{!monthIndex}">
+                                                                        <ui:outputCurrency value="{!months.forecast}"/>
+                                                                    </p>
+                                                                <aura:set attribute="else">
+                                                                    <p data-type="{!item.pls.type}" class="{!months.forecast >= 0 ? 'Black' : 'Red'}" data-parentIndex="{!item.pls.parentIndex}" data-conId="{!item.pls.glcode + ':' + index}" 
+                                                                        data-wrapId="{!item.wrapId}" ondblclick="{!c.expandRow}">
+                                                                        <ui:outputCurrency value="{!months.forecast}"/>
+                                                                    </p>
+                                                                </aura:set>
+                                                             </aura:if>
+                                                            </aura:set>
+                                                        </aura:if> 
+                                                    </div>
+                                                </td>
+                                                <td data-label="Actual" id="{!index + ':' + monthIndex + ':' + 'inLineEditActual'}">
+                                                    <div class="slds-truncate" title="Actual">
+                                                        <aura:if isTrue="{!months.inlineEditActual &amp;&amp; item.isChild}">
+                                                           <div>
+                                                                <ui:inputNumber class="field" value="{!months.actual}"/>
+                                                                <span class="iconclass">
+                                                                    <a onclick="{!c.inLineEditSave}"  data-value="{!months.actual}" data-accounIdAndMonth="{!item.accountId + ':' + months.month}" data-row="{!index}" 
+                                                                        data-name="inLineEditActual" data-glcode="{!item.pls.glcode}" data-wrapId="{!item.wrapId}" data-year="{!months.year}" data-column="{!monthIndex}">
+                                                                        <lightning:icon iconName="utility:check" alternativeText="Approved" size="xx-small" /></a>
+                                                                    <a onclick="{!c.inLineEditCancel}" data-row="{!index}" data-month="{!monthIndex}" data-name="inLineEditActual">
+                                                                        <lightning:icon iconName="utility:close" alternativeText="Approved" size="xx-small" class="paddinghalfrem"/></a> 
+                                                                </span>
+                                                            </div>
+                                                            <aura:set attribute="else">
+                                                             <aura:if isTrue="{!item.isChild}">
+                                                                    <p class="{!months.actual >= 0 ? 'Black' : 'Red'}" ondblclick="{!c.inlineEdit}" data-name="inLineEditActual" data-row="{!index}" data-month="{!monthIndex}">
+                                                                        <ui:outputCurrency value="{!months.actual}"/>
+                                                                    </p>
+                                                                <aura:set attribute="else">
+                                                                    <p data-type="{!item.pls.type}" class="{!months.actual >= 0 ? 'Black' : 'Red'}" data-parentIndex="{!item.pls.parentIndex}" data-conId="{!item.pls.glcode + ':' + index}" data-wrapId="{!item.wrapId}" ondblclick="{!c.expandRow}">
+                                                                        <ui:outputCurrency value="{!months.actual}"/>
+                                                                    </p>
+                                                                </aura:set>
+                                                             </aura:if>
+                                                            </aura:set>
+                                                        </aura:if> 
+                                                    </div>
+                                                </td>
+                                                <td data-label="Variance">
+                                                    <div class="slds-truncate" title="Variance">
+                                                        <p data-type="{!item.pls.type}" data-parentIndex="{!item.pls.parentIndex}" data-conId="{!item.pls.glcode + ':' + index}" data-wrapId="{!item.wrapId}" ondblclick="{!c.expandRow}" class="{!months.variance >= 0 ? 'Black' : 'Red'}">
+                                                            <ui:outputCurrency value="{!months.variance}"/>
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </aura:set>
+                            </aura:if>
+                        </td>
+                        </aura:iteration>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        </div>
+        <div style="display:inline-block;width:40%;height:75vh;overflow:auto;border-style:solid;padding-left:.5rem;padding-top:0rem;" id="recordDetail" aura:id="recordDetail" class="slds-box slds-border_left slds-theme_default slds-hide">
+            <div class="slds-dropdown-trigger slds-dropdown-trigger_click crossDiv">
+                <a onclick="{!c.closeSplit}">
+                    <lightning:icon variant="bare" iconName="utility:close" alternativeText="close" class="closeSplit" size="x-small"/>
+                </a>
+
+            </div>
+
+            <aura:if isTrue="{!!v.isAddNew}">
+                <div style="background-color:#f3f2f2;padding:0.2rem;margin-top:.5rem;">
+                    <aura:iteration items="{!v.historyListSplit}" var="item" indexVar="index">
+                        
+                            <aura:if isTrue="{! v.historyListSplit.length == index+1}">
+                                
+                                {!item.value}
+                                
+                                <aura:set attribute="else">
+                                    <a data-conId="{!item.key}" onclick="{!c.handleHistoryInSplit}">
+                                        <aura:if isTrue="{!item.value}">
+                                    {!item.value} >
+                                            </aura:if>
+                                    </a>
+                                </aura:set>
+                            </aura:if>
+                            
+                        
+                    </aura:iteration>
+                </div>
+                <lightning:tabset selectedTabId="one" aura:id="tabLayout">
+                    <lightning:tab label="Details" id="one" class="" >
+                        <aura:if isTrue="{!not(empty(v.recordId))}">
+                            <!--force:recordEdit aura:id="edit" recordId="{!v.recordId}"/-->
+                            <div class="slds-box">
+                                <aura:if isTrue="{!v.isEditable}">
+                                <lightning:recordEditForm
+                                                          onsubmit="{!c.save}"
+                                                          onsuccess="{!c.handleSuccess}"
+                                                          onerror="{!c.handleOnError}"
+                                                          recordId="{!v.recordId}"
+                                                          objectApiName="{!v.sobjectApiName}">
+                                    <!-- the messages component is for error messages -->
+                                    <lightning:messages />
+                                    <div class="slds-grid">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <aura:iteration items="{!v.fieldSet1}" var="item" indexVar="key">
+                                                <aura:if isTrue="{!item.value}">
+                                            	<lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" />
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" />
+                                                </aura:set>
+                                            </aura:if>
+                                            </aura:iteration>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <aura:iteration items="{!v.fieldSet2}" var="item" indexVar="key">
+                                                <aura:if isTrue="{!item.value}">
+                                            	<lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" />
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" />
+                                                </aura:set>
+                                            </aura:if>
+                                                
+                                            </aura:iteration>
+                                        </div>
+                                    </div>
+                                <div style="text-align:right">
+                                    <lightning:button disabled="{!v.disabled}" variant="brand" class="bgColorbtn" type="submit" name="save"  label="Save" />
+                                </div>
+                                </lightning:recordEditForm>
+                                    <aura:set attribute="else">
+                                    	<lightning:recordViewForm recordId="{!v.recordId}"
+                                                          objectApiName="{!v.sobjectApiName}">
+                                            <div class="slds-grid">
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <aura:iteration items="{!v.fieldSet1}" var="item" indexVar="key">
+                                                <lightning:outputField fieldName="{!item.key}" />
+                                            </aura:iteration>
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-2">
+                                            <aura:iteration items="{!v.fieldSet2}" var="item" indexVar="key">
+                                                 <lightning:outputField fieldName="{!item.key}" />
+                                            </aura:iteration>
+                                        </div>
+                                    </div>
+   										 </lightning:recordViewForm>
+                                    </aura:set>
+                                    </aura:if>
+                            </div>
+                            <div class="" style="margin-top:2%">
+                                <aura:if isTrue="{!v.showRelated}">
+                                    <aura:iteration items="{!v.listRelatedList}" var="item">
+                                        <div class="" style="margin-top:2%">
+                                            <c:singleRelatedList recordId="{!v.recordId}" 
+                                                                 sobjectApiName="{!item.childObjectName}"
+                                                                 relatedFieldApiName="{!item.relationshipField}"
+                                                                 sortedBy="Name"
+                                                                 fields="{!item.fieldList}"
+                                                                 columns="{!item.fieldAttributeList}"
+                                                                 parentSobjectApiName="{!v.sobjectApiName}"/>
+                                        </div>
+                                    </aura:iteration>
+                                    
+                                </aura:if>
+                            </div>
+                        </aura:if>
+                    </lightning:tab>
+                    <lightning:tab label="Chatter" id="three" class="">
+                        <forceChatter:fullFeed type="Record" subjectId="{!v.recordId}"/>
+                    </lightning:tab>
+                </lightning:tabset>
+            </aura:if>
+            <aura:if isTrue="{!v.isAddNew}">
+                    <aura:if isTrue="{!v.isRTAvailable}">
+                            <div aura:id="selectRecordType">
+                                <div style="background-color:#f3f2f2;padding:0.2rem;margin-top:1%;text-align: center;">
+                                    <h1>New {!v.sobjectApiLabel}</h1>
+                                </div>
+                                <div class="slds-grid slds-wrap" style="margin-top: 1%;">
+                                    <div class="slds-size--1-of-3 slds-large-size--1-of-3" style="text-align:right;padding-right: 5%;">
+                                        <div class="">Select a Record Type</div>                            
+                                    </div>
+                                    <div class="slds-size--2-of-3 slds-large-size--2-of-3">
+                                        <lightning:radioGroup name="radioGroup"
+                                                              aura:id="rtSelect"
+                                                              value = "{!v.selectedValue}"
+                                                              options="{! v.lstOfRecordType }"
+                                                              />
+                                        
+                                    </div>&nbsp; &nbsp;
+                                </div>   
+                                <div style="text-align:right">
+                                <lightning:button class="slds-button slds-button--brand bgColorbtn" onclick="{!c.createRecord}">Next</lightning:button>
+                                </div>                            
+                            </div>
+                        </aura:if>
+                <aura:if isTrue="{!!v.isRTAvailable}">
+                <div aura:id="newAccount">
+                    <div style="background-color:#f3f2f2;padding:0.2rem;margin-top:1%;text-align: center;">
+                        <h1>New {!v.selectedRecordTypeName} {!v.sobjectApiLabel}</h1> <!-- 515. CPM-569 -->
+                    </div>
+            
+                    <lightning:recordEditForm objectApiName="{!v.sobjectApiName}" onsubmit="{!c.save}"
+                                              onsuccess="{!c.handleSuccessNew}" recordTypeId = "{!v.selectedValue}"
+                                              >
+                        <lightning:messages />
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet3}" var="item" indexVar="key">
+                                    <aura:if isTrue="{!item.key == v.namespaceString+'GL_Code__c'}">
+                                        <aura:if isTrue="{!item.value}">
+                                        	<lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" value="{!v.glCodeId}"/>
+                                            <aura:set attribute="else">
+                                                <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" value="{!v.glCodeId}"/>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!item.value}">
+                                                <lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}"/>
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}"/>
+                                                </aura:set>
+                                        	</aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:iteration>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet4}" var="item" indexVar="key">
+                                    <aura:if isTrue="{!item.key == v.namespaceString+'GL_Code__c'}">
+                                        <aura:if isTrue="{!item.value}">
+                                        	<lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}" value="{!v.glCodeId}"/>
+                                            <aura:set attribute="else">
+                                                <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}" value="{!v.glCodeId}"/>
+                                            </aura:set>
+                                        </aura:if>
+                                        <aura:set attribute="else">
+                                            <aura:if isTrue="{!item.value}">
+                                                <lightning:inputField fieldName="{!item.key}" class="borderRed" aura:id="{!item.key}"/>
+                                                <aura:set attribute="else">
+                                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.key}"/>
+                                                </aura:set>
+                                        	</aura:if>
+                                        </aura:set>
+                                    </aura:if>
+                                    
+                                </aura:iteration>
+                            </div>
+                        </div>
+                         <div style="text-align:right">
+                            <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" class="bgColorbtn" name="save" label="Save" />
+                        </div>
+                    </lightning:recordEditForm>
+                    <div class="" style="margin-top:2%">
+                        <aura:if isTrue="{!v.showRelated}">
+                            <aura:iteration items="{!v.listRelatedList}" var="item">
+                                <div class="" style="margin-top:2%">
+                                    <c:singleRelatedList recordId="{!v.recordId}" 
+                                                         sobjectApiName="{!item.childObjectName}"
+                                                         relatedFieldApiName="{!item.relationshipField}"
+                                                         sortedBy="Name"
+                                                         fields="{!item.fieldList}"
+                                                         columns="{!item.fieldAttributeList}"
+                                                         parentSobjectApiName="{!v.sobjectApiName}"/>
+                                </div>
+                            </aura:iteration>
+                        </aura:if>
+                    </div>
+                </div>
+            </aura:if>
+        </aura:if>
+        </div>
+        <aura:if isTrue="{!v.isOpen}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                        <lightning:icon variant="bare" iconName="utility:close" alternativeText="close" size="x-small"/>
+                    </button>
+                    <h2 id="header43" class="slds-text-heading--medium">New {!v.sobjectApiLabel} Record</h2>
+                </div>
+                
+                <div class="slds-modal__content slds-p-around--medium">
+                     <aura:if isTrue="{!v.selectedRecordType != null}">           
+                    <lightning:recordEditForm objectApiName="{!v.sobjectApiNameAllocation}" onsubmit="{!c.save}"
+                                              onsuccess="{!c.handleSuccessAllocation}" onerror="{!c.handleOnError}" recordTypeId = "{!v.selectedRecordType}"
+                                              >
+                        <lightning:messages />
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet5}" var="item" indexVar="key">
+                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.value}" value="{!item.value}"/>
+                                        
+                                </aura:iteration>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet6}" var="item" indexVar="key">
+                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.value}" value="{!item.value}"/>
+                                          
+                                </aura:iteration>
+                            </div>
+                        </div>
+                         <div style="text-align:right">
+                             <lightning:button  onclick="{!c.closeModal}" label="Cancel" />
+                            <lightning:button variant="brand" type="submit" class="bgColorbtn" name="save" label="Save" />
+                        </div>
+                    </lightning:recordEditForm>
+                    </aura:if>
+                    <aura:if isTrue="{!v.selectedRecordType == null}">           
+                    <lightning:recordEditForm objectApiName="{!v.sobjectApiNameAllocation}" onsubmit="{!c.save}"
+                                              onsuccess="{!c.handleSuccessAllocation}"
+                                              onerror="{!c.handleOnError}"
+                                              >
+                        <lightning:messages />
+						<div class="slds-grid">
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet5}" var="item" indexVar="key">
+                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.value}" value="{!item.value}"/>
+                                            
+                                </aura:iteration>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2">
+                                <aura:iteration items="{!v.fieldSet6}" var="item" indexVar="key">
+                                    <lightning:inputField fieldName="{!item.key}" class="" aura:id="{!item.value}" value="{!item.value}"/>
+                                          
+                                </aura:iteration>
+                            </div>
+                        </div>                        
+                         <div style="text-align:right">
+                             <lightning:button  onclick="{!c.closeModal}" label="Cancel" />
+                            <lightning:button variant="brand" type="submit" class="bgColorbtn" name="save" label="Save" />
+                        </div>
+                    </lightning:recordEditForm>
+                    </aura:if>
+                </div>
+                
+                
+            </div>
+                
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>    
+    </div>
+    </div>
+    </div>
+</div>
+</aura:component>

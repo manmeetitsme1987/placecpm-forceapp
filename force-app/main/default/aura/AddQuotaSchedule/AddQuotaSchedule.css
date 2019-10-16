@@ -1,0 +1,33 @@
+.THIS .uiInputDate .display{
+    margin-left: -12px;
+}
+.THIS .HideLabel label{
+    display:none;
+}
+.THIS .slds-dropdown{
+    max-width:none;
+}
+.THIS .W30{
+    width:30%;
+}
+.THIS .paddingtb{
+    padding-top:10px;
+    padding-bottom:20px;
+}
+
+.THIS .RightAlign{
+    text-align: right;
+}
+
+.THIS .pdrhalfrem{
+    padding-right:0.5rem;
+}
+
+.THIS .center{
+    text-align:center;
+}
+
+.THIS .LEFT{
+    text-align: left;
+    justify-content: unset;
+}

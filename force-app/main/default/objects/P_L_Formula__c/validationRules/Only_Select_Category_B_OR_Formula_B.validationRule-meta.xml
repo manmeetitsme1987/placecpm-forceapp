@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Select_Category_B_OR_Formula_B</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISBLANK( P_L_Category_B__c )),
+NOT(ISBLANK( P_L_Formula_B__c ))
+)</errorConditionFormula>
+    <errorMessage>Select either P&amp;L Category B or P&amp;L Formula B, both should not be selected</errorMessage>
+</ValidationRule>

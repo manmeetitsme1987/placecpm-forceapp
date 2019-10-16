@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hourly_Rate_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND ( 
+        OR(
+        ISPICKVAL (Employee__r.Employee_Type__c,&#39;Hourly Employee&#39;), 
+        ISPICKVAL(Employee__r.Employee_Type__c, &#39;Hourly Contractors&#39;)
+        ),
+        ISBLANK( Hourly_Rate__c ) 
+ )</errorConditionFormula>
+    <errorDisplayField>Hourly_Rate__c</errorDisplayField>
+    <errorMessage>Hourly Rate is required when Employee Type is Hourly Employee or Hourly Contractors.</errorMessage>
+</ValidationRule>

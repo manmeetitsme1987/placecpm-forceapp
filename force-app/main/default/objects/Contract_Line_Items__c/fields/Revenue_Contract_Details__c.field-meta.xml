@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Contract_Details__c</fullName>
+    <description>This field denotes the revenue contract.</description>
+    <externalId>false</externalId>
+    <label>Revenue Contract Details</label>
+    <referenceTo>Revenue_Contract__c</referenceTo>
+    <relationshipLabel>Contract Line Items</relationshipLabel>
+    <relationshipName>Contract_Line_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

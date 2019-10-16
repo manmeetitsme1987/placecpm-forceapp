@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employer_Tax_Amount__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Compensation__r.Employee__r.RecordType.DeveloperName == &#39;Sales_Employee&#39;, (Employer_Tax__c) * ( Wage_Amount__c + Bonus_Amount__c ), IF(TEXT(Compensation__r.Employee__r.Employee_Type__c) == &#39;Salaried Employee&#39;, (Employer_Tax__c) * ( Wage_Amount__c + Bonus_Amount__c ),0) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Employer Tax Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

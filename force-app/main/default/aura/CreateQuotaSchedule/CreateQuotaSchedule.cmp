@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+	<div class="HomePageRightCornerDiv slds-align_absolute-center">
+        <button class="slds-button slds-button_brand" onclick="{!c.openAddQuotaComponent}">Quota Schedule</button>
+         {!v.body}
+    </div>
+</aura:component>

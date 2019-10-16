@@ -1,0 +1,66 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="CustomCalendarCntrl">
+    <aura:attribute name="IsCash" type="Boolean" />
+    <aura:attribute name="calendarView" type="String" default="Month"/>
+    <aura:attribute name="startRange" type="String"/>
+    <aura:attribute name="endRange" type="String" />
+    <aura:attribute name="selectYearStart" type="Integer"/>
+    <aura:attribute name="selectYearEnd" type="Integer"/>
+    <aura:attribute name="yearList" type="List"/>
+    <aura:attribute name="minyearStart" type="Integer"/>
+    <aura:attribute name="maxYearStart" type="Integer"/>
+    <aura:attribute name="minyearEnd" type="Integer"/>
+    <aura:attribute name="maxYearEnd" type="Integer"/> 
+    <aura:attribute name="currentYearInput" type="Integer"/> 
+    <aura:attribute name="ForecastAndActualViewButtom" type="List" />
+    <aura:attribute name="weekDatesMap" type="Map"/>
+    <aura:attribute name="weekstartDate" type="String"/>
+    <aura:attribute name="weekEndDate" type="String"/>
+
+    <aura:handler name="change" value="{!v.calendarView}" action="{!c.getWeekData}"/>
+    <aura:attribute name="buttonList" type="List" default="[
+                                                           {'label': 'Sales', 'value': 'option1'},
+                                                           {'label': 'Force', 'value': 'option2'}
+                                                           ]"/>
+    <aura:attribute name="value" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="cashForecastFilterEvent" type="c:CashForecastFilterEvent"/>
+    <aura:registerEvent name="actualForecastViewEvent" type="c:ActualForecastViewEvent"/>
+    <aura:registerEvent name="plFilters" type="c:PLFilter"/>
+    <div class="slds-theme_default">
+        <div class="slds-page-header__controls width100">
+            
+            <ui:inputSelect  class=" width12">
+                <option value="CF1">Current Forecast 1</option>
+                <option value="CF2">Current Forecast 2</option>
+                <option value="CF3">Current Forecast 3</option>
+            </ui:inputSelect>
+            
+            <lightning:radioGroup name="filterButtonGroup"
+                                  options="{! v.buttonList }"
+                                  value="{! v.value }"
+                                  type="button"
+                                  class=""
+                                  onchange="{!c.handleFilterChange}"/>
+         <div>
+             <p class="DINLINE" style="padding-left:.5rem;padding-right:.5rem">From</p>
+             <div class="DINLINE">
+                <c:CustomCalendar aura:id="startDate" selectedYear="{!v.selectYearStart}" selectedMonth="{!v.startRange}" minYear="{!v.minyearStart}" maxYear="{!v.maxYearStart}" view="{!v.calendarView}" yearList="{!v.yearList}" weekDatesMap="{!v.weekDatesMap}" weekDate="{!v.weekstartDate}"
+                />
+             </div>
+         </div>
+          <div>
+            <p class="DINLINE" style="padding-left:.5rem;padding-right:.5rem">To</p>
+            <div class="DINLINE">
+                <c:CustomCalendar aura:id="endDate" selectedYear="{!v.selectYearEnd}" selectedMonth="{!v.endRange}" minYear="{!v.minyearEnd}" maxYear="{!v.maxYearEnd}" view="{!v.calendarView}" yearList="{!v.yearList}" weekDatesMap="{!v.weekDatesMap}" weekDate="{!v.weekEndDate}"/>
+            </div>
+         </div>
+         <div class="searchButtom">
+            <button class="slds-button slds-button_brand" onmousedown="{!c.applyFilters}">Apply</button>
+         </div>
+         <div style="right:.5rem;position:absolute">
+                <ui:inputSelect class="single wd20"  aura:id="InputSelectView" change="{!c.viewChange}" options="{!v.ForecastAndActualViewButtom}">
+                </ui:inputSelect>
+        </div>
+        </div>
+    </div>
+</aura:component>

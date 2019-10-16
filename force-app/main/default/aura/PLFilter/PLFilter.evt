@@ -1,0 +1,8 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="startMonth" type="Integer"/>
+    <aura:attribute name="startYear" type="Integer"/>
+    <aura:attribute name="endMonth" type="Integer"/>
+    <aura:attribute name="endYear" type="Integer"/>
+    <aura:attribute name="startdate" type="String"/>
+    <aura:attribute name="endDate" type="String"/>
+</aura:event>

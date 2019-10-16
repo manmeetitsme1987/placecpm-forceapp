@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Size_required_when_unit_type_blocks</fullName>
+    <active>true</active>
+    <description>This VR ensures that Unit Size is populated when unit type block is Blocks</description>
+    <errorConditionFormula>AND(ISPICKVAL(Unit_Type__c, &#39;Blocks&#39;),
+    ISNULL( Size_of_a_block__c )  
+)</errorConditionFormula>
+    <errorMessage>Size of a block should be populated when Unit Type is Blocks</errorMessage>
+</ValidationRule>

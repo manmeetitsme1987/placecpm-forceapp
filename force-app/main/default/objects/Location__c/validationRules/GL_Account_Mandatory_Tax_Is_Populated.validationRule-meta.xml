@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GL_Account_Mandatory_Tax_Is_Populated</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(Tax__c &gt; 0 , GL_Code__c == Null , false)</errorConditionFormula>
+    <errorDisplayField>GL_Code__c</errorDisplayField>
+    <errorMessage>Please populate Tax Gl Account.</errorMessage>
+</ValidationRule>

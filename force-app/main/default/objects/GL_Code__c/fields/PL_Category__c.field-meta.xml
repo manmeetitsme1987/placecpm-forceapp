@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PL_Category__c</fullName>
+    <description>PL_Category__c</description>
+    <externalId>false</externalId>
+    <label>P&amp;L Category</label>
+    <referenceTo>P_L_Category__c</referenceTo>
+    <relationshipLabel>GL Accounts</relationshipLabel>
+    <relationshipName>PL_Category</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

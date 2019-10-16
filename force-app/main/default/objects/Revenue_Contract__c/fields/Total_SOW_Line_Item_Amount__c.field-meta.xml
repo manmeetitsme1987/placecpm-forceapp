@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_SOW_Line_Item_Amount__c</fullName>
+    <externalId>false</externalId>
+    <label>Total SOW Line Item Amount</label>
+    <summarizedField>SOW_Line_Item__c.Line_Item_Amount__c</summarizedField>
+    <summaryForeignKey>SOW_Line_Item__c.Revenue_Contract_Statement_of_Work__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
